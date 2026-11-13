@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daxentra — Technology That Moves Business Forward</title>
+  <meta name="description" content="Daxentra designs and builds websites and digital products for businesses. Clean code, thoughtful design, direct collaboration.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Skip to content -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ========== HEADER & NAVIGATION ========== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo" aria-label="Daxentra — Home">
+        <span class="logo-mark" aria-hidden="true">
+          <span class="logo-d">D</span>
+          <span class="logo-dot"></span>
+        </span>
+        <span class="logo-text">Daxentra</span>
+      </a>
+
+      <nav class="nav desktop-nav" id="main-nav" aria-label="Main navigation">
+        <ul class="nav-links" id="nav-links" role="list">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#work" class="nav-link">Work</a></li>
+          <li><a href="#process" class="nav-link">Process</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a href="#contact" class="btn btn-primary nav-cta">Start a Project</a>
+
+      <button
+        class="mobile-menu-btn"
+        id="mobile-menu-btn"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        aria-label="Open navigation menu"
+      >
+        <span class="hamburger" aria-hidden="true">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </span>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer: slides open between navbar and hero -->
+    <nav class="mobile-nav-drawer" id="mobile-nav" aria-label="Mobile navigation">
+      <div class="container mobile-nav-inner">
+        <ul class="mobile-nav-links" id="mobile-nav-links" role="list">
+          <li><a href="#services" class="mobile-nav-link">Services</a></li>
+          <li><a href="#work" class="mobile-nav-link">Work</a></li>
+          <li><a href="#about" class="mobile-nav-link">About</a></li>
+          <li><a href="#process" class="mobile-nav-link">Process</a></li>
+          <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+        </ul>
+        <div class="mobile-nav-cta-wrapper">
+          <a href="#contact" class="btn btn-primary mobile-drawer-btn">Start a Project</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="main-content">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero section-dark" id="home">
+      <div class="container hero-inner">
+        <div class="hero-content reveal">
+          <p class="hero-label">Daxentra</p>
+          <h1 class="hero-title">
+            Technology That Moves<br>
+            Business <span class="text-accent">Forward.</span>
+          </h1>
+          <p class="hero-description">
+            We design and build websites and digital products that help businesses 
+            connect with their audience, communicate their value, and grow with confidence.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary btn-lg">Start a Project</a>
+            <a href="#work" class="btn btn-ghost btn-lg">See Our Work</a>
+          </div>
+        </div>
+        <div class="hero-visual reveal" aria-hidden="true">
+          <div class="carousel-showcase" id="project-carousel">
+            <div class="carousel-track" id="carousel-track">
+              <!-- Project cards injected by JS from the projects array -->
+            </div>
+            <div class="carousel-fade carousel-fade-left"></div>
+            <div class="carousel-fade carousel-fade-right"></div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-bg-grid" aria-hidden="true"></div>
+    </section>
+
+    <!-- ===== STUDIO INTRODUCTION ===== -->
+    <section class="section section-light" id="about">
+      <div class="container">
+        <div class="studio-intro reveal">
+          <div class="section-header section-header-left">
+            <p class="section-label">About the Studio</p>
+            <h2 class="section-title">Digital experiences that work for your business</h2>
+          </div>
+          <div class="studio-body">
+            <p>
+              Your website is often the first impression a potential customer has of your business. 
+              A thoughtfully designed digital experience communicates professionalism, builds trust, 
+              and makes it easy for visitors to take the next step&mdash;whether that&rsquo;s making 
+              a purchase, booking a service, or reaching out to learn more.
+            </p>
+            <p>
+              At Daxentra, we partner with businesses to create websites and digital products that 
+              look great, work seamlessly, and serve a clear purpose. We focus on clean design, 
+              reliable technology, and a process that keeps you informed and involved at every step.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="section section-dark" id="services">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-label">What We Do</p>
+          <h2 class="section-title">Services built around your goals</h2>
+          <p class="section-description">
+            From first impression to long-term growth, we offer the services your business needs 
+            to succeed online.
+          </p>
+        </div>
+
+        <div class="services-grid">
+
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+            </div>
+            <h3 class="service-title">Business Websites</h3>
+            <p class="service-description">
+              Professional websites that communicate who you are, what you do, and why it matters. 
+              Built to present your business clearly and help visitors take the next step.
+            </p>
+            <a href="#contact" class="service-link">
+              Discuss your project <span aria-hidden="true">&rarr;</span>
+            </a>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 8h2"/><path d="M7 12h4"/></svg>
+            </div>
+            <h3 class="service-title">Web Applications</h3>
+            <p class="service-description">
+              Custom web-based tools and platforms tailored to your workflows. From client portals 
+              to internal dashboards, we build software that fits how you work.
+            </p>
+            <a href="#contact" class="service-link">
+              Discuss your project <span aria-hidden="true">&rarr;</span>
+            </a>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+            </div>
+            <h3 class="service-title">Website Redesign</h3>
+            <p class="service-description">
+              A fresh start for an existing site that has outgrown its design. We modernize visuals, 
+              improve usability, and ensure your site reflects where your business is today.
+            </p>
+            <a href="#contact" class="service-link">
+              Discuss your project <span aria-hidden="true">&rarr;</span>
+            </a>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <h3 class="service-title">Website Care &amp; Maintenance</h3>
+            <p class="service-description">
+              Ongoing support to keep your site secure, up to date, and running smoothly. 
+              Regular updates, performance checks, and peace of mind.
+            </p>
+            <a href="#contact" class="service-link">
+              Discuss your project <span aria-hidden="true">&rarr;</span>
+            </a>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </div>
+            <h3 class="service-title">E-Commerce</h3>
+            <p class="service-description">
+              Online stores built for a smooth shopping experience. We handle product presentation, 
+              checkout flow, and the technical details so you can focus on selling.
+            </p>
+            <a href="#contact" class="service-link">
+              Discuss your project <span aria-hidden="true">&rarr;</span>
+            </a>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+            </div>
+            <h3 class="service-title">Landing Pages</h3>
+            <p class="service-description">
+              Focused, conversion-ready pages for campaigns, product launches, or specific offers. 
+              Designed to communicate a single message clearly and drive action.
+            </p>
+            <a href="#contact" class="service-link">
+              Discuss your project <span aria-hidden="true">&rarr;</span>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHY CHOOSE DAXENTRA ===== -->
+    <section class="section section-light" id="why-us">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-label">Why Daxentra</p>
+          <h2 class="section-title">A team you can count on</h2>
+          <p class="section-description">
+            We believe great work comes from clear communication, honest collaboration, 
+            and a genuine commitment to your success.
+          </p>
+        </div>
+
+        <div class="values-grid">
+
+          <div class="value-item reveal">
+            <div class="value-number" aria-hidden="true">01</div>
+            <h3 class="value-title">Direct collaboration</h3>
+            <p class="value-description">
+              Work directly with the people building your project. No layers, no 
+              handoffs&mdash;just clear communication with a team that knows your goals.
+            </p>
+          </div>
+
+          <div class="value-item reveal">
+            <div class="value-number" aria-hidden="true">02</div>
+            <h3 class="value-title">Thoughtful design</h3>
+            <p class="value-description">
+              Every design decision serves a purpose. We create interfaces that are 
+              intuitive for your visitors and aligned with your brand.
+            </p>
+          </div>
+
+          <div class="value-item reveal">
+            <div class="value-number" aria-hidden="true">03</div>
+            <h3 class="value-title">Flexible foundations</h3>
+            <p class="value-description">
+              We build on technologies that can grow with your business. Whether you 
+              need to add features or scale up, your site is ready.
+            </p>
+          </div>
+
+          <div class="value-item reveal">
+            <div class="value-number" aria-hidden="true">04</div>
+            <h3 class="value-title">Clear communication</h3>
+            <p class="value-description">
+              You&rsquo;ll always know where your project stands. We share progress 
+              regularly, explain decisions plainly, and welcome your input.
+            </p>
+          </div>
+
+          <div class="value-item reveal">
+            <div class="value-number" aria-hidden="true">05</div>
+            <h3 class="value-title">Support after launch</h3>
+            <p class="value-description">
+              Our relationship doesn&rsquo;t end at launch. We&rsquo;re here for 
+              updates, improvements, and questions as your business evolves.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FEATURED WORK ===== -->
+    <section class="section section-dark" id="work">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-label">Featured Work</p>
+          <h2 class="section-title">Projects that show our thinking</h2>
+          <p class="section-description">
+            These are concept projects created to demonstrate our approach to design 
+            and development. They are not client work.
+          </p>
+        </div>
+
+        <div class="work-grid">
+
+          <article class="work-card reveal">
+            <div class="work-image work-image-1" aria-label="Concept project: Greenleaf Market">
+              <div class="work-image-inner">
+                <div class="concept-badge">Concept Project</div>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-meta">
+                <span class="work-category">E-Commerce</span>
+                <span class="work-divider" aria-hidden="true">&middot;</span>
+                <span class="work-type">Concept</span>
+              </div>
+              <h3 class="work-title">Greenleaf Market</h3>
+              <p class="work-description">
+                <!-- PLACEHOLDER: Replace with real project description -->
+                A concept design for a local organic grocery store&rsquo;s online ordering 
+                platform, focused on fresh product imagery and a streamlined checkout experience.
+              </p>
+            </div>
+          </article>
+
+          <article class="work-card reveal">
+            <div class="work-image work-image-2" aria-label="Concept project: Atlas Financial">
+              <div class="work-image-inner">
+                <div class="concept-badge">Concept Project</div>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-meta">
+                <span class="work-category">Business Website</span>
+                <span class="work-divider" aria-hidden="true">&middot;</span>
+                <span class="work-type">Concept</span>
+              </div>
+              <h3 class="work-title">Atlas Financial</h3>
+              <p class="work-description">
+                <!-- PLACEHOLDER: Replace with real project description -->
+                A concept design for a financial advisory firm&rsquo;s professional web 
+                presence, emphasizing trust, clarity, and easy access to key information.
+              </p>
+            </div>
+          </article>
+
+          <article class="work-card reveal">
+            <div class="work-image work-image-3" aria-label="Concept project: Pulse Fitness">
+              <div class="work-image-inner">
+                <div class="concept-badge">Concept Project</div>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-meta">
+                <span class="work-category">Web Application</span>
+                <span class="work-divider" aria-hidden="true">&middot;</span>
+                <span class="work-type">Concept</span>
+              </div>
+              <h3 class="work-title">Pulse Fitness</h3>
+              <p class="work-description">
+                <!-- PLACEHOLDER: Replace with real project description -->
+                A concept design for a fitness studio&rsquo;s class booking and membership 
+                platform, balancing vibrant energy with intuitive scheduling.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TEAM PREVIEW ===== -->
+    <section class="section section-light" id="team">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-label">Our Team</p>
+          <h2 class="section-title">The people behind the work</h2>
+          <p class="section-description">
+            A small, focused team that works directly with every client. 
+            Get to know the people who will bring your project to life.
+          </p>
+        </div>
+
+        <!-- NOTE: These are placeholder profiles. Replace names, roles, bios, 
+             and images with real team information before publishing. -->
+        <div class="team-grid">
+
+          <article class="team-card reveal">
+            <div class="team-avatar" aria-hidden="true">
+              <span class="avatar-placeholder">?</span>
+            </div>
+            <h3 class="team-name">[Team Member Name]</h3>
+            <p class="team-role">[Role / Title]</p>
+            <p class="team-bio">
+              <!-- PLACEHOLDER: Add a short bio for this team member. -->
+              This is a placeholder profile. Replace with the team member&rsquo;s 
+              name, role, photo, and a brief description of their background and expertise.
+            </p>
+          </article>
+
+          <article class="team-card reveal">
+            <div class="team-avatar" aria-hidden="true">
+              <span class="avatar-placeholder">?</span>
+            </div>
+            <h3 class="team-name">[Team Member Name]</h3>
+            <p class="team-role">[Role / Title]</p>
+            <p class="team-bio">
+              <!-- PLACEHOLDER: Add a short bio for this team member. -->
+              This is a placeholder profile. Replace with the team member&rsquo;s 
+              name, role, photo, and a brief description of their background and expertise.
+            </p>
+          </article>
+
+          <article class="team-card reveal">
+            <div class="team-avatar" aria-hidden="true">
+              <span class="avatar-placeholder">?</span>
+            </div>
+            <h3 class="team-name">[Team Member Name]</h3>
+            <p class="team-role">[Role / Title]</p>
+            <p class="team-bio">
+              <!-- PLACEHOLDER: Add a short bio for this team member. -->
+              This is a placeholder profile. Replace with the team member&rsquo;s 
+              name, role, photo, and a brief description of their background and expertise.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="section section-dark" id="testimonials">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-label">Client Feedback</p>
+          <h2 class="section-title">What our clients say</h2>
+        </div>
+
+        <!-- NOTE: This section contains placeholder content. Do not publish 
+             without replacing it with real, client-approved testimonials. -->
+        <div class="testimonials-placeholder reveal">
+          <div class="placeholder-notice">
+            <div class="placeholder-icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3 class="placeholder-title">Client testimonials coming soon</h3>
+            <p class="placeholder-text">
+              This space is reserved for approved client feedback. Written testimonials 
+              and optional video or media testimonials will be added here once real, 
+              client-approved material is available.
+            </p>
+            <p class="placeholder-hint">
+              To add a testimonial, replace this block with the testimonial template 
+              provided in the HTML comments below.
+            </p>
+          </div>
+        </div>
+
+        <!--
+          TESTIMONIAL TEMPLATE — Copy and use for each real testimonial:
+
+          <div class="testimonials-grid">
+            <blockquote class="testimonial-card reveal">
+              <p class="testimonial-quote">"[Client-approved quote goes here.]"</p>
+              <footer class="testimonial-author">
+                <div class="testimonial-avatar">
+                  <img src="assets/[photo].jpg" alt="Photo of [Client Name]" width="48" height="48">
+                </div>
+                <div>
+                  <cite class="testimonial-name">[Client Name]</cite>
+                  <p class="testimonial-role">[Role], [Company]</p>
+                </div>
+              </footer>
+            </blockquote>
+          </div>
+        -->
+      </div>
+    </section>
+
+    <!-- ===== WORK PROCESS ===== -->
+    <section class="section section-light" id="process">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-label">How We Work</p>
+          <h2 class="section-title">A clear path from idea to launch</h2>
+          <p class="section-description">
+            Every project follows a structured process designed to keep things on track, 
+            transparent, and collaborative from start to finish.
+          </p>
+        </div>
+
+        <ol class="process-steps" role="list">
+
+          <li class="process-step reveal">
+            <div class="step-number" aria-hidden="true">01</div>
+            <div class="step-content">
+              <h3 class="step-title">Discover</h3>
+              <p class="step-description">
+                We start by understanding your business, your audience, and your goals. 
+                Through conversation and research, we define what your project needs to succeed.
+              </p>
+            </div>
+          </li>
+
+          <li class="process-step reveal">
+            <div class="step-number" aria-hidden="true">02</div>
+            <div class="step-content">
+              <h3 class="step-title">Plan &amp; Design</h3>
+              <p class="step-description">
+                We map out the structure and create visual designs you can review. You&rsquo;ll 
+                see how your site will look and function before any code is written.
+              </p>
+            </div>
+          </li>
+
+          <li class="process-step reveal">
+            <div class="step-number" aria-hidden="true">03</div>
+            <div class="step-content">
+              <h3 class="step-title">Build &amp; Refine</h3>
+              <p class="step-description">
+                We develop your site with clean, reliable code and test it thoroughly. 
+                You&rsquo;ll have opportunities to review and provide feedback at every stage.
+              </p>
+            </div>
+          </li>
+
+          <li class="process-step reveal">
+            <div class="step-number" aria-hidden="true">04</div>
+            <div class="step-content">
+              <h3 class="step-title">Launch &amp; Support</h3>
+              <p class="step-description">
+                We handle the technical details of going live and make sure everything is 
+                working perfectly. After launch, we&rsquo;re here for ongoing support and updates.
+              </p>
+            </div>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section section-dark" id="faq">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-label">FAQ</p>
+          <h2 class="section-title">Common questions</h2>
+        </div>
+
+        <div class="faq-list reveal">
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>What types of businesses do you work with?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                We work with small and growing businesses across a range of industries. 
+                Whether you&rsquo;re a local service provider, a retail brand, a professional 
+                firm, or a startup, we tailor our approach to fit your specific needs and goals.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>How much does a project cost?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                Project costs depend on scope, complexity, and the specific services involved. 
+                We provide a clear, detailed estimate after our initial conversation so you 
+                know exactly what to expect. There are no hidden fees.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>How long does a typical project take?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                Timelines vary based on the project&rsquo;s size and requirements. During our 
+                planning phase, we&rsquo;ll establish a realistic timeline with key milestones 
+                so you always know what&rsquo;s coming next.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Can you work with my existing brand or website?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                Absolutely. We can redesign or rebuild your current site while respecting your 
+                existing brand identity. If you have brand guidelines, a style guide, or 
+                existing assets, we&rsquo;ll incorporate them into the new design.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Do you offer support after launch?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                Yes. We offer ongoing website care and maintenance to keep your site secure, 
+                updated, and performing well. We&rsquo;re also available for future improvements 
+                and new features as your business grows.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>What do I need to get started?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                Just reach out and tell us a bit about your business and what you&rsquo;re 
+                looking for. We&rsquo;ll take it from there. If you have existing brand materials, 
+                content, or a current website, those are helpful but not required to begin the 
+                conversation.
+              </p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT CTA ===== -->
+    <section class="section section-contact" id="contact">
+      <div class="container">
+        <div class="contact-inner reveal">
+          <div class="contact-content">
+            <p class="section-label">Get in Touch</p>
+            <h2 class="contact-title">Let&rsquo;s build something great together.</h2>
+            <p class="contact-description">
+              Ready to start a project or have questions about how we can help? 
+              We&rsquo;d love to hear from you.
+            </p>
+          </div>
+          <div class="contact-details">
+            <div class="contact-method">
+              <p class="contact-method-label">Email us</p>
+              <!-- PLACEHOLDER: Replace with your real email address -->
+              <a href="mailto:hello@daxentra.com?subject=Project%20Inquiry%20%E2%80%93%20Daxentra" class="contact-email">
+                hello@daxentra.com
+              </a>
+            </div>
+            <div class="contact-method">
+              <p class="contact-method-label">Location</p>
+              <!-- PLACEHOLDER: Replace with your real location -->
+              <p class="contact-location">[City, Country]</p>
+            </div>
+            <a href="mailto:hello@daxentra.com?subject=Project%20Inquiry%20%E2%80%93%20Daxentra" class="btn btn-primary btn-lg contact-btn">
+              Start a Conversation
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo footer-logo" aria-label="Daxentra — Home">
+          <span class="logo-mark" aria-hidden="true">
+            <span class="logo-d">D</span>
+            <span class="logo-dot"></span>
+          </span>
+          <span class="logo-text">Daxentra</span>
+        </a>
+        <p class="footer-tagline">Technology That Moves Business Forward.</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <ul class="footer-links" role="list">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          &copy; <span id="copyright-year"></span> Daxentra. All rights reserved.
+        </p>
+        <a href="#" class="back-to-top" aria-label="Back to top">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
+          Top
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
