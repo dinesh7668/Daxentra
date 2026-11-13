@@ -309,6 +309,130 @@
   }
 
   /* ================================================
+     PROJECT INQUIRY FORM
+     ================================================ */
+
+  const contactForm = document.querySelector('#contact-form');
+  if (contactForm) {
+    const contactNote = document.querySelector('#contact-form-note');
+    const projectInput = document.querySelector('#contact-project');
+    const projectSelect = document.querySelector('#contact-project-select');
+
+    if (projectSelect && projectInput) {
+      const trigger = projectSelect.querySelector('.contact-select-trigger');
+      const valueLabel = document.querySelector('#contact-project-value');
+      const optionsPanel = projectSelect.querySelector('.contact-select-options');
+      const options = Array.from(projectSelect.querySelectorAll('.contact-select-option'));
+      let activeIndex = -1;
+
+      function setActiveOption(index) {
+        activeIndex = (index + options.length) % options.length;
+        options.forEach(function (option, optionIndex) {
+          option.classList.toggle('is-active', optionIndex === activeIndex);
+        });
+        trigger.setAttribute('aria-activedescendant', options[activeIndex].id);
+        options[activeIndex].scrollIntoView({ block: 'nearest' });
+      }
+
+      function openProjectOptions() {
+        optionsPanel.hidden = false;
+        projectSelect.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+        const selectedIndex = options.findIndex(function (option) {
+          return option.dataset.value === projectInput.value;
+        });
+        setActiveOption(selectedIndex >= 0 ? selectedIndex : 0);
+      }
+
+      function closeProjectOptions() {
+        optionsPanel.hidden = true;
+        projectSelect.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+        trigger.removeAttribute('aria-activedescendant');
+        options.forEach(function (option) { option.classList.remove('is-active'); });
+        activeIndex = -1;
+      }
+
+      function chooseProjectOption(option) {
+        projectInput.value = option.dataset.value;
+        valueLabel.textContent = option.textContent;
+        projectSelect.classList.add('has-value');
+        projectSelect.closest('.contact-select-field').classList.remove('is-invalid');
+        options.forEach(function (item) {
+          item.setAttribute('aria-selected', String(item === option));
+        });
+        if (contactNote) {
+          contactNote.textContent = 'Great choice. Add a few details and we’ll prepare your email.';
+          contactNote.classList.remove('is-ready');
+        }
+        closeProjectOptions();
+        trigger.focus();
+      }
+
+      options.forEach(function (option, index) {
+        option.id = 'contact-project-option-' + (index + 1);
+        option.tabIndex = -1;
+        option.addEventListener('click', function () { chooseProjectOption(option); });
+      });
+
+      trigger.addEventListener('click', function () {
+        if (optionsPanel.hidden) openProjectOptions();
+        else closeProjectOptions();
+      });
+      trigger.addEventListener('keydown', function (event) {
+        if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+          event.preventDefault();
+          if (optionsPanel.hidden) openProjectOptions();
+          else setActiveOption(activeIndex + (event.key === 'ArrowDown' ? 1 : -1));
+        } else if ((event.key === 'Enter' || event.key === ' ') && !optionsPanel.hidden) {
+          event.preventDefault();
+          chooseProjectOption(options[activeIndex]);
+        } else if (event.key === 'Escape' && !optionsPanel.hidden) {
+          event.preventDefault();
+          closeProjectOptions();
+        } else if (event.key === 'Home' && !optionsPanel.hidden) {
+          event.preventDefault();
+          setActiveOption(0);
+        } else if (event.key === 'End' && !optionsPanel.hidden) {
+          event.preventDefault();
+          setActiveOption(options.length - 1);
+        }
+      });
+      document.addEventListener('click', function (event) {
+        if (!projectSelect.contains(event.target)) closeProjectOptions();
+      });
+    }
+
+    contactForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (projectInput && !projectInput.value) {
+        const projectField = document.querySelector('.contact-select-field');
+        projectField.classList.add('is-invalid');
+        if (contactNote) contactNote.textContent = 'Choose a project type to continue, or select “Not sure yet”.';
+        const trigger = document.querySelector('#contact-project-trigger');
+        trigger.focus();
+        if (projectSelect) openProjectOptions();
+        return;
+      }
+      const formData = new FormData(contactForm);
+      const name = formData.get('Name').trim();
+      const email = formData.get('Email').trim();
+      const project = formData.get('Project type');
+      const message = formData.get('Message').trim();
+      const subject = encodeURIComponent('Project inquiry from ' + name);
+      const body = encodeURIComponent(
+        'Name: ' + name + '\nEmail: ' + email + '\nProject type: ' + project + '\n\n' + message
+      );
+
+      if (contactNote) {
+        contactNote.textContent = 'Opening your email app with your project details…';
+        contactNote.classList.add('is-ready');
+      }
+      window.location.href = 'mailto:hello@daxentra.com?subject=' + subject + '&body=' + body;
+    });
+  }
+
+  /* ================================================
      SMOOTH SCROLL FOR ANCHOR LINKS
      ================================================ */
 

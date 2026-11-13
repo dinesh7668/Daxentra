@@ -31,6 +31,7 @@
           <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#services" class="nav-link">Services</a></li>
           <li><a href="#work" class="nav-link">Work</a></li>
+          <li><a href="#team" class="nav-link">Team</a></li>
           <li><a href="#process" class="nav-link">Process</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
@@ -60,6 +61,7 @@
         <ul class="mobile-nav-links" id="mobile-nav-links" role="list">
           <li><a href="#services" class="mobile-nav-link">Services</a></li>
           <li><a href="#work" class="mobile-nav-link">Work</a></li>
+          <li><a href="#team" class="mobile-nav-link">Team</a></li>
           <li><a href="#about" class="mobile-nav-link">About</a></li>
           <li><a href="#process" class="mobile-nav-link">Process</a></li>
           <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
@@ -106,27 +108,57 @@
     </section>
 
     <!-- ===== STUDIO INTRODUCTION ===== -->
-    <section class="section section-light" id="about">
-      <div class="container">
-        <div class="studio-intro reveal">
-          <div class="section-header section-header-left">
-            <p class="section-label">About the Studio</p>
-            <h2 class="section-title">Digital experiences that work for your business</h2>
+    <section class="section section-light about-studio" id="about" aria-labelledby="about-title">
+      <div class="container about-container">
+        <div class="about-heading reveal">
+          <div>
+            <p class="section-label">About Daxentra <span aria-hidden="true">/</span> Digital studio</p>
+            <h2 class="section-title" id="about-title">We turn ideas into <span>digital experiences.</span></h2>
           </div>
-          <div class="studio-body">
-            <p>
-              Your website is often the first impression a potential customer has of your business. 
-              A thoughtfully designed digital experience communicates professionalism, builds trust, 
-              and makes it easy for visitors to take the next step&mdash;whether that&rsquo;s making 
-              a purchase, booking a service, or reaching out to learn more.
-            </p>
-            <p>
-              At Daxentra, we partner with businesses to create websites and digital products that 
-              look great, work seamlessly, and serve a clear purpose. We focus on clean design, 
-              reliable technology, and a process that keeps you informed and involved at every step.
-            </p>
+          <div class="about-intro-copy">
+            <p>Creative thinking. Smart technology. Meaningful results.</p>
+            <p>We bring design and development together to shape thoughtful digital experiences around your business and the people you serve.</p>
+            <a class="btn btn-primary about-link" href="#process">Discover our approach <span aria-hidden="true">↗</span></a>
           </div>
         </div>
+
+        <div class="about-vision reveal" aria-label="Our vision">
+          <div class="about-vision-top"><span class="about-mark" aria-hidden="true">✳</span><span class="about-vision-label">Our vision</span></div>
+          <h3>Build. Innovate. Grow.</h3>
+          <p>Digital solutions that move your business forward, with purpose in every detail.</p>
+          <span class="about-vision-arrow" aria-hidden="true">↗</span>
+        </div>
+
+        <div class="about-cards" aria-label="What we bring to every project">
+          <article class="about-card reveal" style="--reveal-delay: 80ms">
+            <span class="about-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18h1.2a2 2 0 0 0 1.5-3.3 1.5 1.5 0 0 1 1.1-2.5H18a3 3 0 0 0 3-3c0-5.1-4-9.2-9-9.2Z"/><path d="M7.5 11h.01M10 7.5h.01M15 8.5h.01"/></svg></span>
+            <span class="about-card-index">01 / THINK</span>
+            <h3>Creative design</h3>
+            <p>Clear ideas, shaped into visual identities and experiences people remember.</p>
+            <span class="about-card-arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="about-card reveal" style="--reveal-delay: 160ms">
+            <span class="about-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></span>
+            <span class="about-card-index">02 / MAKE</span>
+            <h3>Web development</h3>
+            <p>Reliable, responsive websites built to feel effortless on every screen.</p>
+            <span class="about-card-arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="about-card reveal" style="--reveal-delay: 240ms">
+            <span class="about-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v3m0 14v3M4.9 4.9 7 7m10 10 2.1 2.1M2 12h3m14 0h3M4.9 19.1 7 17m10-10 2.1-2.1"/><circle cx="12" cy="12" r="4"/></svg></span>
+            <span class="about-card-index">03 / EVOLVE</span>
+            <h3>Digital innovation</h3>
+            <p>Smart tools and considered technology that help good ideas go further.</p>
+            <span class="about-card-arrow" aria-hidden="true">↗</span>
+          </article>
+        </div>
+
+        <ol class="about-process reveal" aria-label="Our process">
+          <li><span>01</span><div><strong>Understand</strong><small>Start with your goals</small></div></li>
+          <li><span>02</span><div><strong>Create</strong><small>Make the idea real</small></div></li>
+          <li><span>03</span><div><strong>Deliver</strong><small>Launch with confidence</small></div></li>
+          <li class="about-process-note">Good work begins with a good conversation <span aria-hidden="true">↗</span></li>
+        </ol>
       </div>
     </section>
 
@@ -648,32 +680,44 @@
     <!-- ===== CONTACT CTA ===== -->
     <section class="section section-contact" id="contact">
       <div class="container">
-        <div class="contact-inner reveal">
+        <div class="contact-inner contact-inner-form reveal">
           <div class="contact-content">
-            <p class="section-label">Get in Touch</p>
+            <p class="section-label">Have a project in mind?</p>
             <h2 class="contact-title">Let&rsquo;s build something great together.</h2>
             <p class="contact-description">
-              Ready to start a project or have questions about how we can help? 
-              We&rsquo;d love to hear from you.
+              Tell us a little about what you&rsquo;re working on. We&rsquo;ll make it easy to take the next step.
             </p>
-          </div>
-          <div class="contact-details">
-            <div class="contact-method">
-              <p class="contact-method-label">Email us</p>
-              <!-- PLACEHOLDER: Replace with your real email address -->
-              <a href="mailto:hello@daxentra.com?subject=Project%20Inquiry%20%E2%80%93%20Daxentra" class="contact-email">
-                hello@daxentra.com
-              </a>
+            <div class="contact-direct">
+              <span class="contact-direct-icon" aria-hidden="true">↗</span>
+              <div><span class="contact-method-label">Prefer email? </span><a href="mailto: hello@daxentra.com?subject=Project%20Inquiry%20%E2%80%93%20Daxentra" class="contact-email">hello@daxentra.com</a></div>
             </div>
-            <div class="contact-method">
-              <p class="contact-method-label">Location</p>
-              <!-- PLACEHOLDER: Replace with your real location -->
-              <p class="contact-location">[City, Country]</p>
-            </div>
-            <a href="mailto:hello@daxentra.com?subject=Project%20Inquiry%20%E2%80%93%20Daxentra" class="btn btn-primary btn-lg contact-btn">
-              Start a Conversation
-            </a>
           </div>
+          <form class="contact-form" id="contact-form" action="mailto:hello@daxentra.com" method="post" enctype="text/plain">
+            <div class="contact-form-heading"><div><span class="contact-form-kicker">01 <i></i> YOUR PROJECT</span><h3>Start a conversation</h3></div><span class="contact-form-aside">A few details help us get started.</span></div>
+            <div class="contact-form-grid">
+              <div class="contact-field"><label for="contact-name">Your name</label><input id="contact-name" name="Name" type="text" placeholder="Jane Smith" autocomplete="name" required></div>
+              <div class="contact-field"><label for="contact-email">Email address</label><input id="contact-email" name="Email" type="email" placeholder="jane@company.com" autocomplete="email" required></div>
+            </div>
+            <div class="contact-field contact-select-field">
+              <label id="contact-project-label" for="contact-project-trigger">What can we help with?</label>
+              <input id="contact-project" name="Project type" type="hidden" required>
+              <div class="contact-select" id="contact-project-select">
+                <button class="contact-select-trigger" id="contact-project-trigger" type="button" role="combobox" aria-labelledby="contact-project-label contact-project-value" aria-haspopup="listbox" aria-expanded="false" aria-controls="contact-project-options" aria-required="true">
+                  <span id="contact-project-value">Choose a starting point</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 7.5 5 5 5-5"/></svg>
+                </button>
+                <div class="contact-select-options" id="contact-project-options" role="listbox" aria-labelledby="contact-project-label" hidden>
+                  <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="Website design & development">Website design &amp; development</button>
+                  <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="Digital product">Digital product</button>
+                  <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="Creative design">Creative design</button>
+                  <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="Something else">Something else</button>
+                  <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="Not sure yet">Not sure yet</button>
+                </div>
+              </div>
+            </div>
+            <div class="contact-field"><label for="contact-message">A little about your project</label><textarea id="contact-message" name="Message" rows="4" placeholder="What are you hoping to make?" required></textarea></div>
+            <div class="contact-form-bottom"><p><span aria-hidden="true">✳</span> No pressure. Just the essentials.</p><button class="btn btn-primary btn-lg contact-submit" type="submit">Send project details <span aria-hidden="true">↗</span></button></div>
+            <p class="contact-form-note" id="contact-form-note" aria-live="polite">Your email app will open with your message ready to send.</p>
+          </form>
         </div>
       </div>
     </section>
@@ -698,6 +742,7 @@
         <ul class="footer-links" role="list">
           <li><a href="#services">Services</a></li>
           <li><a href="#work">Work</a></li>
+          <li><a href="#team">Team</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#process">Process</a></li>
           <li><a href="#contact">Contact</a></li>
