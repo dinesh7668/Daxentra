@@ -20,20 +20,18 @@
      PROJECTS CAROUSEL DATA
      ================================================
      Edit this array to update carousel projects.
-     Each object needs: name, category, gradient (1–8).
-     Replace `image` with a real path when screenshots
-     are available (e.g. "assets/project-1.jpg").
+     Each object needs: name, category, gradient (1–8), and image.
      ================================================ */
 
   var projects = [
-    { name: 'Greenleaf Market',  category: 'E-Commerce',       gradient: 1, image: null },
-    { name: 'Atlas Financial',   category: 'Business Website',  gradient: 2, image: null },
-    { name: 'Pulse Fitness',     category: 'SaaS Platform',     gradient: 3, image: null },
-    { name: 'NovaPay',           category: 'Dashboard',         gradient: 4, image: null },
-    { name: 'Horizon Travel',    category: 'Business Website',  gradient: 5, image: null },
-    { name: 'CraftBrew Co.',     category: 'E-Commerce',        gradient: 6, image: null },
-    { name: 'SkillForge',        category: 'SaaS Platform',     gradient: 7, image: null },
-    { name: 'Lumina Studios',    category: 'Landing Page',      gradient: 8, image: null },
+    { name: 'Greenleaf Market',  category: 'E-Commerce',       gradient: 1, image: 'assets/images/slider/ecommerce.png' },
+    { name: 'Atlas Financial',   category: 'Business Website',  gradient: 2, image: 'assets/images/slider/business.jpg' },
+    { name: 'Pulse Fitness',     category: 'SaaS Platform',     gradient: 3, image: 'assets/images/slider/saas.png' },
+    { name: 'NovaPay',           category: 'Dashboard',         gradient: 4, image: 'assets/images/slider/Dshboard.png' },
+    { name: 'Horizon Travel',    category: 'Business Website',  gradient: 5, image: 'assets/images/slider/business.jpg' },
+    { name: 'CraftBrew Co.',     category: 'E-Commerce',        gradient: 6, image: 'assets/images/slider/ecommerce.png' },
+    { name: 'SkillForge',        category: 'SaaS Platform',     gradient: 7, image: 'assets/images/slider/saas.png' },
+    { name: 'Lumina Studios',    category: 'Landing Page',      gradient: 8, image: 'assets/images/slider/Landing_pages.png' },
   ];
 
   /* ================================================
