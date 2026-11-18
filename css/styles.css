@@ -510,9 +510,71 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
 }
 
+/* Technology marks scroll beneath the project cards, in the opposite direction. */
+.tech-float-field {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 54px;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 11%, #000 89%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 11%, #000 89%, transparent 100%);
+}
+
+.tech-float-track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: max-content;
+  animation: tech-icons-scroll 15s linear infinite;
+}
+
+.tech-float-group {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding-right: clamp(1.5rem, 4vw, 3rem);
+}
+
+.tech-float-icon {
+  flex: 0 0 54px;
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 0 0 8px rgba(168, 227, 74, 0.92), 0 0 22px rgba(168, 227, 74, 0.62), 0 0 38px rgba(168, 227, 74, 0.32);
+  filter: drop-shadow(0 0 9px rgba(168, 227, 74, 0.5));
+}
+
+.tech-float-node { font-size: 0.88rem; }
+
+.tech-float-react svg {
+  width: 38px;
+  height: 38px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+
+@keyframes tech-icons-scroll {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
 /* Carousel container */
 .carousel-showcase {
   position: relative;
+  z-index: 1;
   width: 100%;
   overflow: hidden;
   padding: var(--space-lg) 0;
@@ -528,6 +590,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .carousel-showcase:hover .carousel-track {
+  animation-play-state: paused;
+}
+
+.hero-visual:has(.carousel-showcase:hover) .tech-float-track {
   animation-play-state: paused;
 }
 
@@ -1374,7 +1440,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   .waterfall-steps .process-step:nth-child(n) { margin-top: 0; }
   .waterfall-steps .process-step { padding: 1.35rem; }
-  .waterfall-steps .process-step::before { top: 1.55rem; left: -1.62rem; }
+  .waterfall-steps .process-step::before { top: 1.55rem; left: -1.3rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1732,7 +1798,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .hero-visual {
-    min-height: 360px;
+    min-height: 422px;
   }
 
   .hero {
@@ -1986,12 +2052,27 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .hero-visual {
-    min-height: 280px;
+    min-height: 430px;
     width: 100%;
+  }
+
+  .hero-visual::before {
+    content: none;
   }
 
   .carousel-showcase {
     padding: var(--space-xs) 0 var(--space-md);
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .tech-float-field {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .carousel-fade {
+    display: none;
   }
 
   .carousel-card {

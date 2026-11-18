@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Daxentra Studio</title>
+  <meta name="description" content="Daxentra designs and builds websites and digital products for businesses. Clean code, thoughtful design, direct collaboration.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Daxentra — Home">
+        <span class="logo-mark" aria-hidden="true">
+          <span class="logo-d">D</span>
+          <span class="logo-dot"></span>
+        </span>
+        <span class="logo-text">Daxentra</span>
+      </a>
+
+      <nav class="nav desktop-nav" id="main-nav" aria-label="Main navigation">
+        <ul class="nav-links" id="nav-links" role="list">
+          <li><a href="index.html#about" class="nav-link">About</a></li>
+          <li><a href="index.html#services" class="nav-link">Services</a></li>
+          <li><a href="index.html#work" class="nav-link">Work</a></li>
+          <li><a href="index.html#team" class="nav-link">Team</a></li>
+          <li><a href="index.html#process" class="nav-link">Process</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a href="index.html#contact" class="btn btn-primary nav-cta">Start a Project</a>
+
+      <button
+        class="mobile-menu-btn"
+        id="mobile-menu-btn"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        aria-label="Open navigation menu"
+      >
+        <span class="hamburger" aria-hidden="true">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </span>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer: slides open between navbar and hero -->
+    <nav class="mobile-nav-drawer" id="mobile-nav" aria-label="Mobile navigation">
+      <div class="container mobile-nav-inner">
+        <ul class="mobile-nav-links" id="mobile-nav-links" role="list">
+          <li><a href="index.html#services" class="mobile-nav-link">Services</a></li>
+          <li><a href="index.html#work" class="mobile-nav-link">Work</a></li>
+          <li><a href="index.html#team" class="mobile-nav-link">Team</a></li>
+          <li><a href="index.html#about" class="mobile-nav-link">About</a></li>
+          <li><a href="index.html#process" class="mobile-nav-link">Process</a></li>
+          <li><a href="index.html#contact" class="mobile-nav-link">Contact</a></li>
+        </ul>
+        <div class="mobile-nav-cta-wrapper">
+          <a href="index.html#contact" class="btn btn-primary mobile-drawer-btn">Start a Project</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+<main id="main-content">
+<section class="section section-contact" id="contact">
+      <div class="container">
+        <div class="contact-inner contact-inner-form reveal">
+          <div class="contact-content">
+            <p class="section-label">Have a project in mind?</p>
+            <h2 class="contact-title">Let&rsquo;s build something great together.</h2>
+            <p class="contact-description">
+              Tell us a little about what you&rsquo;re working on. We&rsquo;ll make it easy to take the next step.
+            </p>
+            <div class="contact-direct">
+              <span class="contact-direct-icon" aria-hidden="true">↗</span>
+              <div><span class="contact-method-label">Prefer email? </span><a href="mailto: hello@daxentra.com?subject=Project%20Inquiry%20%E2%80%93%20Daxentra" class="contact-email">hello@daxentra.com</a></div>
+            </div>
+          </div>
+          <form class="contact-form" id="contact-form" action="mailto:hello@daxentra.com" method="post" enctype="text/plain">
+            <div class="contact-form-heading"><div><span class="contact-form-kicker">01 <i></i> YOUR PROJECT</span><h3>Start a conversation</h3></div><span class="contact-form-aside">A few details help us get started.</span></div>
+            <div class="contact-form-grid">
+              <div class="contact-field"><label for="contact-name">Your name</label><input id="contact-name" name="Name" type="text" placeholder="Jane Smith" autocomplete="name" required></div>
+              <div class="contact-field"><label for="contact-email">Email address</label><input id="contact-email" name="Email" type="email" placeholder="jane@company.com" autocomplete="email" required></div>
+            </div>
+            <div class="contact-field contact-select-field">
+              <label id="contact-project-label" for="contact-project-trigger">What can we help with?</label>
+              <input id="contact-project" name="Project type" type="hidden" required>
+              <div class="contact-select" id="contact-project-select">
+                <button class="contact-select-trigger" id="contact-project-trigger" type="button" role="combobox" aria-labelledby="contact-project-label contact-project-value" aria-haspopup="listbox" aria-expanded="false" aria-controls="contact-project-options" aria-required="true">
+                  <span id="contact-project-value">Choose a starting point</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 7.5 5 5 5-5"/></svg>
+                </button>
+                <div class="contact-select-options" id="contact-project-options" role="listbox" aria-labelledby="contact-project-label" hidden>
+                  <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="Website design & development">Website design &amp; development</button>
+                  <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="Digital product">Digital product</button>
+                  <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="Creative design">Creative design</button>
+                  <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="Something else">Something else</button>
+                  <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="Not sure yet">Not sure yet</button>
+                </div>
+              </div>
+            </div>
+            <div class="contact-field"><label for="contact-message">A little about your project</label><textarea id="contact-message" name="Message" rows="4" placeholder="What are you hoping to make?" required></textarea></div>
+            <div class="contact-form-bottom"><p><span aria-hidden="true">✳</span> No pressure. Just the essentials.</p><button class="btn btn-primary btn-lg contact-submit" type="submit">Send project details <span aria-hidden="true">↗</span></button></div>
+            <p class="contact-form-note" id="contact-form-note" aria-live="polite">Your email app will open with your message ready to send.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+</main>
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo footer-logo" aria-label="Daxentra — Home">
+          <span class="logo-mark" aria-hidden="true">
+            <span class="logo-d">D</span>
+            <span class="logo-dot"></span>
+          </span>
+          <span class="logo-text">Daxentra</span>
+        </a>
+        <p class="footer-tagline">Technology That Moves Business Forward.</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <ul class="footer-links" role="list">
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#work">Work</a></li>
+          <li><a href="index.html#team">Team</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#process">Process</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          &copy; <span id="copyright-year"></span> Daxentra. All rights reserved.
+        </p>
+        <a href="index.html" class="back-to-top" aria-label="Back to top">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
+          Top
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
