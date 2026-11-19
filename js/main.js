@@ -491,6 +491,59 @@
   }
 
   /* ================================================
+     TEAM CATEGORY FILTERS
+     ================================================ */
+
+  const teamFilterGroup = document.querySelector('[data-team-filters]');
+  if (teamFilterGroup) {
+    const teamFilterButtons = Array.from(teamFilterGroup.querySelectorAll('[data-team-filter]'));
+    const teamCards = Array.from(document.querySelectorAll('[data-team-grid] .team-member'));
+    const teamFilterStatus = document.getElementById('team-filter-status');
+    const teamEmptyState = document.querySelector('[data-team-empty]');
+
+    function filterTeamMembers(category) {
+      let visibleCount = 0;
+
+      teamCards.forEach(function (card) {
+        const categories = (card.dataset.categories || '').split(/\s+/);
+        const isVisible = category === 'all' || categories.includes(category);
+
+        card.classList.remove('filter-entering');
+        card.hidden = !isVisible;
+        if (isVisible) {
+          card.style.setProperty('--filter-index', visibleCount);
+          if (!prefersReducedMotion()) {
+            window.requestAnimationFrame(function () {
+              card.classList.add('filter-entering');
+            });
+          }
+          visibleCount += 1;
+        }
+      });
+
+      teamFilterButtons.forEach(function (button) {
+        const isActive = button.dataset.teamFilter === category;
+        button.classList.toggle('is-active', isActive);
+        button.setAttribute('aria-pressed', String(isActive));
+      });
+
+      if (teamFilterStatus) {
+        teamFilterStatus.textContent = 'Showing ' + visibleCount + ' team member' + (visibleCount === 1 ? '' : 's');
+      }
+      if (teamEmptyState) {
+        teamEmptyState.hidden = visibleCount > 0;
+      }
+    }
+
+    teamFilterGroup.addEventListener('click', function (event) {
+      const button = event.target.closest('[data-team-filter]');
+      if (button && teamFilterGroup.contains(button)) {
+        filterTeamMembers(button.dataset.teamFilter);
+      }
+    });
+  }
+
+  /* ================================================
      SMOOTH SCROLL FOR ANCHOR LINKS
      ================================================ */
 
