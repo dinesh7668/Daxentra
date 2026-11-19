@@ -313,8 +313,24 @@
   const contactForm = document.querySelector('#contact-form');
   if (contactForm) {
     const contactNote = document.querySelector('#contact-form-note');
+    const successDialog = document.querySelector('#contact-success-dialog');
+    const projectKicker = contactForm.querySelector('.contact-form-kicker');
     const projectInput = document.querySelector('#contact-project');
     const projectSelect = document.querySelector('#contact-project-select');
+    let contactNoteTimeout;
+
+    if (successDialog) {
+      const closeButton = successDialog.querySelector('.contact-success-close');
+      closeButton.addEventListener('click', function () {
+        successDialog.close();
+      });
+      successDialog.addEventListener('click', function (event) {
+        if (event.target === successDialog) successDialog.close();
+      });
+      successDialog.addEventListener('close', function () {
+        contactForm.querySelector('[type="submit"]').focus();
+      });
+    }
 
     if (projectSelect && projectInput) {
       const trigger = projectSelect.querySelector('.contact-select-trigger');
@@ -356,12 +372,15 @@
         valueLabel.textContent = option.textContent;
         projectSelect.classList.add('has-value');
         projectSelect.closest('.contact-select-field').classList.remove('is-invalid');
+        window.clearTimeout(contactNoteTimeout);
+        contactNoteTimeout = null;
         options.forEach(function (item) {
           item.setAttribute('aria-selected', String(item === option));
         });
         if (contactNote) {
-          contactNote.textContent = 'Great choice. Add a few details and we’ll prepare your email.';
-          contactNote.classList.remove('is-ready');
+          contactNote.textContent = '';
+          contactNote.hidden = true;
+          contactNote.classList.remove('is-ready', 'is-error');
         }
         closeProjectOptions();
         trigger.focus();
@@ -401,32 +420,73 @@
       });
     }
 
-    contactForm.addEventListener('submit', function (event) {
+    contactForm.addEventListener('submit', async function (event) {
       event.preventDefault();
+      window.clearTimeout(contactNoteTimeout);
+      contactNoteTimeout = null;
       if (projectInput && !projectInput.value) {
         const projectField = document.querySelector('.contact-select-field');
         projectField.classList.add('is-invalid');
-        if (contactNote) contactNote.textContent = 'Choose a project type to continue, or select “Not sure yet”.';
+        if (contactNote) {
+          contactNote.textContent = 'Choose a project type to continue, or select “Not sure yet”.';
+          contactNote.hidden = false;
+        }
         const trigger = document.querySelector('#contact-project-trigger');
         trigger.focus();
         if (projectSelect) openProjectOptions();
         return;
       }
-      const formData = new FormData(contactForm);
-      const name = formData.get('Name').trim();
-      const email = formData.get('Email').trim();
-      const project = formData.get('Project type');
-      const message = formData.get('Message').trim();
-      const subject = encodeURIComponent('Project inquiry from ' + name);
-      const body = encodeURIComponent(
-        'Name: ' + name + '\nEmail: ' + email + '\nProject type: ' + project + '\n\n' + message
-      );
-
+      const submitButton = contactForm.querySelector('[type="submit"]');
+      if (submitButton.disabled) return;
+      submitButton.disabled = true;
+      contactForm.setAttribute('aria-busy', 'true');
       if (contactNote) {
-        contactNote.textContent = 'Opening your email app with your project details…';
-        contactNote.classList.add('is-ready');
+        contactNote.textContent = 'Sending your message…';
+        contactNote.hidden = false;
+        contactNote.classList.remove('is-ready', 'is-error');
       }
-      window.location.href = 'mailto:hello@daxentra.com?subject=' + subject + '&body=' + body;
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+        });
+        const result = await response.json();
+        if (!response.ok || !result || !result.success) {
+          throw new Error(result && result.message ? result.message : 'The form service could not send your message.');
+        }
+
+        contactForm.reset();
+        if (projectInput && projectSelect) {
+          projectSelect.querySelector('#contact-project-value').textContent = 'Choose a starting point';
+          projectSelect.classList.remove('has-value');
+          projectSelect.querySelectorAll('.contact-select-option').forEach(function (option) {
+            option.setAttribute('aria-selected', 'false');
+          });
+        }
+        if (contactNote) {
+          contactNote.textContent = 'Thanks! Your message has been sent. We’ll be in touch soon.';
+          contactNote.classList.add('is-ready');
+          contactNoteTimeout = window.setTimeout(function () {
+            contactNote.hidden = true;
+            contactNote.textContent = '';
+            contactNote.classList.remove('is-ready');
+          }, 2000);
+        }
+        if (projectKicker) projectKicker.hidden = true;
+        if (successDialog && !successDialog.open) {
+          successDialog.showModal();
+        }
+      } catch (error) {
+        if (contactNote) {
+          contactNote.textContent = 'We couldn’t send your message. Please try again or email hello@daxentra.com.';
+          contactNote.classList.add('is-error');
+        }
+        console.error('Contact form submission failed:', error);
+      } finally {
+        submitButton.disabled = false;
+        contactForm.removeAttribute('aria-busy');
+      }
     });
   }
 
