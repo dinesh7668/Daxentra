@@ -16,6 +16,32 @@
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
 
+  function initThemeToggle() {
+    const root = document.documentElement;
+    const button = document.getElementById('theme-toggle');
+    if (!button) return;
+
+    function updateButton() {
+      const isLight = root.getAttribute('data-theme') === 'light';
+      button.setAttribute('aria-pressed', String(isLight));
+      button.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme');
+    }
+
+    button.addEventListener('click', function () {
+      const nextTheme = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', nextTheme);
+      updateButton();
+
+      try {
+        window.localStorage.setItem('daxentra-theme', nextTheme);
+      } catch (error) {
+        console.warn('Theme preference could not be saved.', error);
+      }
+    });
+
+    updateButton();
+  }
+
   /* ================================================
      PROJECTS CAROUSEL DATA
      ================================================
@@ -544,6 +570,197 @@
   }
 
   /* ================================================
+     REVIEW CAROUSEL
+     ================================================ */
+
+  const reviewTrack = document.getElementById('review-track');
+  const reviewDots = document.getElementById('review-dots');
+
+  if (reviewTrack && reviewDots) {
+    const reviews = [
+      {
+        initials: 'AM',
+        name: 'Aman Gupta',
+        role: 'Founder, StyleKart',
+        company: 'StyleKart',
+        text: 'Daxentra built our e-commerce platform exactly how we envisioned it. The design, performance, and support were outstanding!'
+      },
+      {
+        initials: 'PS',
+        name: 'Priya Sharma',
+        role: 'Product Manager, Taskly',
+        company: 'Taskly',
+        text: 'A highly professional and skilled team. They understood our requirements clearly and delivered a scalable SaaS product on time.'
+      },
+      {
+        initials: 'RM',
+        name: 'Rohit Mehra',
+        role: 'CEO, Nexora',
+        company: 'Nexora',
+        text: 'Great communication, clean code, and a design that truly stands out. Daxentra is our go-to team for all things web.'
+      },
+      {
+        initials: 'NV',
+        name: 'Neha Verma',
+        role: 'Co-founder, Finly',
+        company: 'Finly',
+        text: 'They turned a rough idea into a polished fintech dashboard. Fast iterations, honest advice, and zero surprises along the way.'
+      },
+      {
+        initials: 'KS',
+        name: 'Karan Singh',
+        role: 'CTO, Cloudio',
+        company: 'Cloudio',
+        text: 'Their engineering depth is rare. Our cloud migration was smooth, well documented, and delivered ahead of schedule.'
+      }
+    ];
+
+    let activeReview = 1;
+    let reviewPaused = false;
+    let reviewTimer;
+    const cards = [];
+    const dots = [];
+    const reduceMotion = prefersReducedMotion();
+
+    reviews.forEach((review, index) => {
+      const card = document.createElement('article');
+      card.className = 'review-card';
+      card.setAttribute('aria-roledescription', 'slide');
+      card.setAttribute('aria-label', `${index + 1} of ${reviews.length}`);
+      card.innerHTML =
+        '<div class="review-card-top">' +
+          '<span class="review-quote-mark" aria-hidden="true">&ldquo;</span>' +
+          '<span class="review-verified">✓ Verified Client</span>' +
+        '</div>' +
+        '<div class="review-stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>' +
+        `<p class="review-quote">&ldquo;${review.text}&rdquo;</p>` +
+        '<div class="review-author">' +
+          `<span class="review-avatar" aria-hidden="true">${review.initials}</span>` +
+          `<div class="review-author-info"><strong>${review.name}</strong><span>${review.role}</span></div>` +
+          `<span class="review-company">${review.company}</span>` +
+        '</div>';
+      card.addEventListener('click', () => {
+        if (index !== activeReview) goToReview(index);
+      });
+      reviewTrack.appendChild(card);
+      cards.push(card);
+
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'review-dot';
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', `Show review ${index + 1}`);
+      dot.addEventListener('click', () => goToReview(index));
+      reviewDots.appendChild(dot);
+      dots.push(dot);
+    });
+
+    function wrapReviewOffset(index) {
+      let offset = ((index - activeReview) % reviews.length + reviews.length) % reviews.length;
+      if (offset > reviews.length / 2) offset -= reviews.length;
+      return offset;
+    }
+
+    function layoutReviews(instant = false) {
+      const width = reviewTrack.clientWidth;
+      const threeCards = width > 980;
+      const cardWidth = threeCards ? Math.min(350, (width - 40) / 3) : Math.min(width, 460);
+      const step = cardWidth + 20;
+
+      cards.forEach((card) => {
+        card.style.width = `${cardWidth}px`;
+      });
+
+      const cardHeights = cards.map((card) => {
+        card.style.height = 'auto';
+        return card.offsetHeight;
+      });
+      const maxHeight = Math.max(...cardHeights);
+      cards.forEach((card) => { card.style.height = `${maxHeight}px`; });
+      reviewTrack.style.height = `${maxHeight}px`;
+
+      cards.forEach((card, index) => {
+        const offset = wrapReviewOffset(index);
+        const visible = threeCards ? Math.abs(offset) <= 1 : offset === 0;
+        if (instant || reduceMotion) card.style.transition = 'none';
+        const scale = offset === 0 ? 1 : 0.94;
+        card.style.transform = `translateX(calc(-50% + ${offset * step}px)) scale(${scale})`;
+        card.classList.toggle('is-active', offset === 0);
+        card.classList.toggle('is-hidden', !visible);
+        card.setAttribute('aria-hidden', String(!visible));
+        if (instant || reduceMotion) {
+          void card.offsetWidth;
+          card.style.transition = '';
+        }
+      });
+
+      dots.forEach((dot, index) => {
+        dot.setAttribute('aria-selected', String(index === activeReview));
+      });
+    }
+
+    function restartReviews() {
+      window.clearInterval(reviewTimer);
+      if (!reduceMotion) {
+        reviewTimer = window.setInterval(() => {
+          if (!reviewPaused && !document.hidden) goToReview(activeReview + 1, false);
+        }, 6500);
+      }
+    }
+
+    function goToReview(index, restart = true) {
+      activeReview = ((index % reviews.length) + reviews.length) % reviews.length;
+      layoutReviews(false);
+      if (restart) restartReviews();
+    }
+
+    function previousReview() { goToReview(activeReview - 1); }
+    function nextReview() { goToReview(activeReview + 1); }
+
+    document.querySelectorAll('.review-arrow-prev').forEach((button) => {
+      button.addEventListener('click', previousReview);
+    });
+    document.querySelectorAll('.review-arrow-next').forEach((button) => {
+      button.addEventListener('click', nextReview);
+    });
+
+    const carousel = reviewTrack.closest('.review-carousel');
+    carousel.addEventListener('mouseenter', () => { reviewPaused = true; });
+    carousel.addEventListener('mouseleave', () => { reviewPaused = false; });
+    carousel.addEventListener('focusin', () => { reviewPaused = true; });
+    carousel.addEventListener('focusout', () => { reviewPaused = false; });
+    carousel.setAttribute('tabindex', '0');
+    carousel.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') { event.preventDefault(); previousReview(); }
+      if (event.key === 'ArrowRight') { event.preventDefault(); nextReview(); }
+    });
+
+    let swipeStartX = null;
+    let swipeStartY = 0;
+    reviewTrack.addEventListener('pointerdown', (event) => {
+      swipeStartX = event.clientX;
+      swipeStartY = event.clientY;
+    });
+    reviewTrack.addEventListener('pointerup', (event) => {
+      if (swipeStartX === null) return;
+      const dx = event.clientX - swipeStartX;
+      const dy = event.clientY - swipeStartY;
+      swipeStartX = null;
+      if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) dx < 0 ? nextReview() : previousReview();
+    });
+    reviewTrack.addEventListener('pointercancel', () => { swipeStartX = null; });
+
+    let reviewResizeTimer;
+    window.addEventListener('resize', () => {
+      window.clearTimeout(reviewResizeTimer);
+      reviewResizeTimer = window.setTimeout(() => layoutReviews(true), 80);
+    });
+
+    layoutReviews(true);
+    restartReviews();
+  }
+
+  /* ================================================
      SMOOTH SCROLL FOR ANCHOR LINKS
      ================================================ */
 
@@ -583,5 +800,7 @@
       );
     });
   });
+
+  initThemeToggle();
 
 })();

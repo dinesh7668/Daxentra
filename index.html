@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/theme-init.js"></script>
 </head>
 <body>
 
@@ -38,6 +39,11 @@
       </nav>
 
       <a href="index.html#contact" class="btn btn-primary nav-cta">Start a Project</a>
+
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false">
+        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.1A8.4 8.4 0 0 1 8.9 3.8 8.5 8.5 0 1 0 20.2 15.1Z"/></svg>
+      </button>
 
       <button
         class="mobile-menu-btn"
@@ -553,36 +559,87 @@
     </section>
 
     <!-- ===== TESTIMONIALS ===== -->
-    <section class="section section-dark" id="testimonials">
+    <section class="section section-dark review-showcase" id="testimonials" aria-labelledby="reviews-title">
       <div class="container">
-        <div class="section-header reveal">
-          <p class="section-label">Client Feedback</p>
-          <h2 class="section-title">What our clients say</h2>
+        <div class="review-hero reveal">
+          <span class="review-pill">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.7 6.3.9-4.6 4.5 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.5 6.3-.9z"/></svg>
+            Customer Reviews
+          </span>
+          <h2 id="reviews-title">What Our Clients <span>Say</span></h2>
+          <p>Real feedback from businesses, founders, and creators who trusted Daxentra Studios for their digital growth.</p>
         </div>
 
-        <p class="testimonial-demo-note">Sample testimonials for layout preview</p>
-        <div class="testimonials-grid">
-          <blockquote class="testimonial-card reveal">
-            <div class="testimonial-rating" aria-label="5 out of 5 stars">★★★★★</div>
-            <p class="testimonial-quote">“Daxentra turned a complicated brief into a website that feels effortless to use. The team was thoughtful, responsive, and delivered exactly what our business needed.”</p>
-            <footer class="testimonial-author"><span class="testimonial-avatar" aria-hidden="true">AM</span><div><cite class="testimonial-name">Alex Morgan</cite><p class="testimonial-role">Marketing Director · Northstar Studio</p></div></footer>
-          </blockquote>
-          <blockquote class="testimonial-card reveal">
-            <div class="testimonial-rating" aria-label="5 out of 5 stars">★★★★★</div>
-            <p class="testimonial-quote">“From the first workshop to launch, the process was clear and collaborative. We now have a faster, more polished digital storefront that our customers love.”</p>
-            <footer class="testimonial-author"><span class="testimonial-avatar" aria-hidden="true">JR</span><div><cite class="testimonial-name">Jamie Rivera</cite><p class="testimonial-role">Founder · Fieldwork Goods</p></div></footer>
-          </blockquote>
-          <blockquote class="testimonial-card reveal">
-            <div class="testimonial-rating" aria-label="5 out of 5 stars">★★★★★</div>
-            <p class="testimonial-quote">“The attention to detail was outstanding. Daxentra brought our product vision to life and made every step feel organized, open, and easy to follow.”</p>
-            <footer class="testimonial-author"><span class="testimonial-avatar" aria-hidden="true">SK</span><div><cite class="testimonial-name">Samira Khan</cite><p class="testimonial-role">Product Lead · Brightpath Health</p></div></footer>
-          </blockquote>
-          <blockquote class="testimonial-card reveal">
-            <div class="testimonial-rating" aria-label="5 out of 5 stars">★★★★★</div>
-            <p class="testimonial-quote">“A brilliant partner for our rebrand and site rebuild. The result is distinctive, easy to manage, and already helping us start better conversations with new clients.”</p>
-            <footer class="testimonial-author"><span class="testimonial-avatar" aria-hidden="true">TL</span><div><cite class="testimonial-name">Taylor Lee</cite><p class="testimonial-role">Managing Partner · Atlas Advisory</p></div></footer>
-          </blockquote>
+        <ul class="review-stats reveal" aria-label="Review highlights">
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.7 6.3.9-4.6 4.5 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.5 6.3-.9z"/></svg>
+            <div><strong>4.9/5</strong><span>Average Rating</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 20v-1.5A3.5 3.5 0 0 0 12.5 15h-5A3.5 3.5 0 0 0 4 18.5V20"/><circle cx="10" cy="8" r="3.5"/><path d="M20 20v-1.5a3.5 3.5 0 0 0-2.5-3.35M15.5 5.2a3.5 3.5 0 0 1 0 6.6"/></svg>
+            <div><strong>50+</strong><span>Happy Clients</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l9 5-9 5-9-5zM3 12l9 5 9-5M3 16l9 5 9-5"/></svg>
+            <div><strong>100+</strong><span>Projects Delivered</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-8-4.9-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 9c0 6.1-8 11-8 11z"/></svg>
+            <div><strong>98%</strong><span>Client Satisfaction</span></div>
+          </li>
+        </ul>
+
+        <div class="review-carousel reveal" aria-roledescription="carousel" aria-label="Client testimonials">
+          <button class="review-arrow review-arrow-prev" type="button" aria-label="Previous review">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <div class="review-track" id="review-track"></div>
+          <button class="review-arrow review-arrow-next" type="button" aria-label="Next review">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
         </div>
+        <div class="review-controls">
+          <button class="review-arrow review-arrow-small review-arrow-prev" type="button" aria-label="Previous review">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <div class="review-dots" id="review-dots" role="tablist" aria-label="Choose review"></div>
+          <button class="review-arrow review-arrow-small review-arrow-next" type="button" aria-label="Next review">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+
+        <div class="review-trusted reveal" aria-label="Client logos">
+          <p><span>Trusted by 50+ Happy Clients</span></p>
+          <div class="review-logo-viewport">
+            <div class="review-logo-track">
+              <ul class="review-logo-group">
+                <li><b>StyleKart</b></li>
+                <li><b>Taskly</b></li>
+                <li><b>Nexora</b></li>
+                <li><b>Finly</b></li>
+                <li><b>Cloudio</b></li>
+              </ul>
+              <ul class="review-logo-group" aria-hidden="true">
+                <li><b>StyleKart</b></li>
+                <li><b>Taskly</b></li>
+                <li><b>Nexora</b></li>
+                <li><b>Finly</b></li>
+                <li><b>Cloudio</b></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <aside class="review-cta reveal" id="review-contact">
+          <div class="review-cta-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16v12H9l-5 4z"/><path d="M12 7l1 2 2.2.3-1.6 1.5.4 2.2-2-1.1-2 1.1.4-2.2-1.6-1.5L11 9z"/></svg>
+          </div>
+          <div>
+            <h3>Have a project in mind?</h3>
+            <p>Let’s build something amazing together.</p>
+          </div>
+          <a href="contact.html" class="btn btn-primary review-cta-button">Work With Us <span aria-hidden="true">→</span></a>
+        </aside>
       </div>
     </section>
 
