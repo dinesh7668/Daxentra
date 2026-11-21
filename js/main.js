@@ -21,10 +21,17 @@
     const button = document.getElementById('theme-toggle');
     if (!button) return;
 
+    const darkLogo = 'assets/images/Logo/full_name_logo.png';
+    const lightLogo = 'assets/images/Logo/Daxentra_Studios_Green Orbit_Logo_for_light_theme.png';
+
     function updateButton() {
       const isLight = root.getAttribute('data-theme') === 'light';
       button.setAttribute('aria-pressed', String(isLight));
       button.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme');
+
+      document.querySelectorAll('.logo-image').forEach(function (logo) {
+        logo.src = isLight ? lightLogo : darkLogo;
+      });
     }
 
     button.addEventListener('click', function () {

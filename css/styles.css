@@ -284,6 +284,14 @@ h6 {
   position: relative;
 }
 
+.logo-image {
+  display: block;
+  width: auto;
+  height: 2.25rem;
+  max-width: 9rem;
+  object-fit: contain;
+}
+
 .logo-d {
   font-family: var(--font-display);
   font-weight: 700;
@@ -5168,6 +5176,166 @@ h6 {
   border-color: rgba(25, 45, 28, 0.1);
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(250, 252, 248, 0.92));
   box-shadow: 0 1.2rem 2.8rem rgba(20, 40, 22, 0.08);
+}
+
+/* Light theme — premium team directory */
+[data-theme="light"] .team-page,
+[data-theme="light"] .team-directory {
+  --team-accent: #347819;
+  color: #182019;
+}
+
+[data-theme="light"] .team-page {
+  background: #f5f7f2;
+}
+
+[data-theme="light"] .team-directory {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(74, 143, 32, 0.08), transparent 34rem),
+    radial-gradient(ellipse at 50% 85%, rgba(74, 143, 32, 0.035), transparent 54rem),
+    #f5f7f2;
+}
+
+[data-theme="light"] .team-directory::before,
+[data-theme="light"] .team-directory::after {
+  border-top-color: rgba(52, 120, 25, 0.16);
+  border-left-color: rgba(52, 120, 25, 0.16);
+  box-shadow: -0.5rem -0.4rem 1.8rem rgba(52, 120, 25, 0.04);
+}
+
+[data-theme="light"] .team-ambient {
+  background: radial-gradient(circle, rgba(74, 143, 32, 0.12), transparent 68%);
+}
+
+[data-theme="light"] .team-kicker {
+  border-color: rgba(52, 120, 25, 0.32);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 0 1.5rem rgba(52, 120, 25, 0.08), inset 0 0 0.8rem rgba(52, 120, 25, 0.03);
+  color: #347819;
+}
+
+[data-theme="light"] .team-hero h1,
+[data-theme="light"] .team-hero h2 {
+  color: #182019;
+}
+
+[data-theme="light"] .team-hero h1 span,
+[data-theme="light"] .team-hero h2 span {
+  color: #347819;
+  text-shadow: none;
+}
+
+[data-theme="light"] .team-hero-copy,
+[data-theme="light"] .team-filter-status,
+[data-theme="light"] .team-empty-state {
+  color: #536158;
+}
+
+[data-theme="light"] .team-stats {
+  border-color: rgba(25, 45, 28, 0.11);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 1rem 2.5rem rgba(20, 40, 22, 0.07), inset 0 1px rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="light"] .team-stat + .team-stat {
+  border-left-color: rgba(25, 45, 28, 0.11);
+}
+
+[data-theme="light"] .team-stat strong {
+  color: #182019;
+}
+
+[data-theme="light"] .team-stat > div > span {
+  color: #536158;
+}
+
+[data-theme="light"] .team-filter {
+  border-color: rgba(25, 45, 28, 0.14);
+  background: #ffffff;
+  color: #354238;
+  box-shadow: 0 0.25rem 0.8rem rgba(20, 40, 22, 0.035);
+}
+
+[data-theme="light"] .team-filter:hover {
+  border-color: rgba(52, 120, 25, 0.48);
+  color: #347819;
+}
+
+[data-theme="light"] .team-filter.is-active {
+  border-color: #347819;
+  background: #347819;
+  color: #ffffff;
+  box-shadow: 0 0.3rem 1.2rem rgba(52, 120, 25, 0.18);
+}
+
+[data-theme="light"] .team-member {
+  border-color: rgba(25, 45, 28, 0.13);
+  background: linear-gradient(150deg, #ffffff, #fafcf8);
+  box-shadow: 0 1rem 2.5rem rgba(20, 40, 22, 0.08), inset 0 1px rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="light"] .team-member:hover {
+  border-color: rgba(52, 120, 25, 0.42);
+  box-shadow: 0 1.2rem 3rem rgba(20, 40, 22, 0.12), 0 0 1.4rem rgba(52, 120, 25, 0.08);
+}
+
+[data-theme="light"] .team-member-heading h2 {
+  color: #182019;
+}
+
+[data-theme="light"] .team-member-heading > div > p,
+[data-theme="light"] .team-experience > span,
+[data-theme="light"] .team-member-bio {
+  color: #536158;
+}
+
+[data-theme="light"] .team-experience {
+  border-color: rgba(52, 120, 25, 0.18);
+  background: #eef5e8;
+}
+
+[data-theme="light"] .team-experience strong {
+  color: #273329;
+}
+
+[data-theme="light"] .team-tags li {
+  border-color: rgba(52, 120, 25, 0.22);
+  background: #eef5e8;
+  color: #347819;
+}
+
+[data-theme="light"] .team-member:hover .team-tags li {
+  border-color: rgba(52, 120, 25, 0.38);
+  background: #e5f0dc;
+}
+
+[data-theme="light"] .team-member-footer {
+  border-top-color: rgba(25, 45, 28, 0.1);
+}
+
+[data-theme="light"] .team-socials a {
+  color: #3d4e42;
+}
+
+[data-theme="light"] .team-socials a:hover {
+  color: #347819;
+}
+
+[data-theme="light"] .team-member-link {
+  border-color: rgba(52, 120, 25, 0.42);
+  color: #347819;
+}
+
+[data-theme="light"] .team-member-link:hover {
+  background: #347819;
+  color: #ffffff;
+  box-shadow: 0 0 1rem rgba(52, 120, 25, 0.18);
+}
+
+@media (max-width: 48em) {
+  [data-theme="light"] .team-stat:nth-child(n + 3) {
+    border-top-color: rgba(25, 45, 28, 0.11);
+  }
 }
 
 [data-theme="light"] .review-card.is-active {
