@@ -16,6 +16,112 @@
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
 
+  function initializeStyledSelect(selectElement, valueInput, onSelect) {
+    const trigger = selectElement.querySelector('.contact-select-trigger');
+    const valueLabel = selectElement.querySelector('.contact-select-value');
+    const optionsPanel = selectElement.querySelector('.contact-select-options');
+    const options = Array.from(selectElement.querySelectorAll('.contact-select-option'));
+    const field = selectElement.closest('.contact-select-field');
+    let activeIndex = -1;
+    valueLabel.dataset.placeholder = valueLabel.dataset.placeholder || valueLabel.textContent;
+
+    function syncValue() {
+      const selectedOption = options.find(function (option) {
+        return option.dataset.value === valueInput.value;
+      });
+
+      valueLabel.textContent = selectedOption ? selectedOption.textContent : valueLabel.dataset.placeholder;
+      selectElement.classList.toggle('has-value', Boolean(selectedOption));
+      options.forEach(function (option) {
+        option.setAttribute('aria-selected', String(option === selectedOption));
+      });
+
+      if (selectedOption && field) {
+        field.classList.remove('is-invalid');
+        trigger.removeAttribute('aria-invalid');
+      }
+    }
+
+    function setActiveOption(index) {
+      activeIndex = (index + options.length) % options.length;
+      options.forEach(function (option, optionIndex) {
+        option.classList.toggle('is-active', optionIndex === activeIndex);
+      });
+      trigger.setAttribute('aria-activedescendant', options[activeIndex].id);
+      options[activeIndex].scrollIntoView({ block: 'nearest' });
+    }
+
+    function openOptions() {
+      optionsPanel.hidden = false;
+      selectElement.classList.add('is-open');
+      trigger.setAttribute('aria-expanded', 'true');
+      const selectedIndex = options.findIndex(function (option) {
+        return option.dataset.value === valueInput.value;
+      });
+      setActiveOption(selectedIndex >= 0 ? selectedIndex : 0);
+    }
+
+    function closeOptions() {
+      optionsPanel.hidden = true;
+      selectElement.classList.remove('is-open');
+      trigger.setAttribute('aria-expanded', 'false');
+      trigger.removeAttribute('aria-activedescendant');
+      options.forEach(function (option) { option.classList.remove('is-active'); });
+      activeIndex = -1;
+    }
+
+    function chooseOption(option) {
+      valueInput.value = option.dataset.value;
+      valueInput.dispatchEvent(new Event('change', { bubbles: true }));
+      if (onSelect) onSelect(option);
+      closeOptions();
+      trigger.focus();
+    }
+
+    function reset() {
+      valueInput.value = '';
+      valueInput.dispatchEvent(new Event('change', { bubbles: true }));
+      closeOptions();
+    }
+
+    options.forEach(function (option, index) {
+      option.id = selectElement.id + '-option-' + (index + 1);
+      option.tabIndex = -1;
+      option.addEventListener('click', function () { chooseOption(option); });
+    });
+
+    trigger.addEventListener('click', function () {
+      if (optionsPanel.hidden) openOptions();
+      else closeOptions();
+    });
+    trigger.addEventListener('keydown', function (event) {
+      if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+        event.preventDefault();
+        if (optionsPanel.hidden) openOptions();
+        else setActiveOption(activeIndex + (event.key === 'ArrowDown' ? 1 : -1));
+      } else if ((event.key === 'Enter' || event.key === ' ') && !optionsPanel.hidden) {
+        event.preventDefault();
+        chooseOption(options[activeIndex]);
+      } else if (event.key === 'Escape' && !optionsPanel.hidden) {
+        event.preventDefault();
+        closeOptions();
+      } else if (event.key === 'Home' && !optionsPanel.hidden) {
+        event.preventDefault();
+        setActiveOption(0);
+      } else if (event.key === 'End' && !optionsPanel.hidden) {
+        event.preventDefault();
+        setActiveOption(options.length - 1);
+      }
+    });
+    document.addEventListener('click', function (event) {
+      if (!selectElement.contains(event.target)) closeOptions();
+    });
+    valueInput.addEventListener('change', syncValue);
+    syncValue();
+
+    return { open: openOptions, reset: reset };
+  }
+
   function initThemeToggle() {
     const root = document.documentElement;
     const button = document.getElementById('theme-toggle');
@@ -343,6 +449,11 @@
      PROJECT INQUIRY FORM
      ================================================ */
 
+  document.querySelectorAll('.career-select').forEach(function (selectElement) {
+    const field = selectElement.closest('.career-field');
+    initializeStyledSelect(selectElement, field.querySelector('input[type="hidden"]'));
+  });
+
   const contactForm = document.querySelector('#contact-form');
   if (contactForm) {
     const contactNote = document.querySelector('#contact-form-note');
@@ -351,6 +462,7 @@
     const projectInput = document.querySelector('#contact-project');
     const projectSelect = document.querySelector('#contact-project-select');
     let contactNoteTimeout;
+    let projectDropdown;
 
     if (successDialog) {
       const closeButton = successDialog.querySelector('.contact-success-close');
@@ -366,90 +478,15 @@
     }
 
     if (projectSelect && projectInput) {
-      const trigger = projectSelect.querySelector('.contact-select-trigger');
-      const valueLabel = document.querySelector('#contact-project-value');
-      const optionsPanel = projectSelect.querySelector('.contact-select-options');
-      const options = Array.from(projectSelect.querySelectorAll('.contact-select-option'));
-      let activeIndex = -1;
-
-      function setActiveOption(index) {
-        activeIndex = (index + options.length) % options.length;
-        options.forEach(function (option, optionIndex) {
-          option.classList.toggle('is-active', optionIndex === activeIndex);
-        });
-        trigger.setAttribute('aria-activedescendant', options[activeIndex].id);
-        options[activeIndex].scrollIntoView({ block: 'nearest' });
-      }
-
-      function openProjectOptions() {
-        optionsPanel.hidden = false;
-        projectSelect.classList.add('is-open');
-        trigger.setAttribute('aria-expanded', 'true');
-        const selectedIndex = options.findIndex(function (option) {
-          return option.dataset.value === projectInput.value;
-        });
-        setActiveOption(selectedIndex >= 0 ? selectedIndex : 0);
-      }
-
-      function closeProjectOptions() {
-        optionsPanel.hidden = true;
-        projectSelect.classList.remove('is-open');
-        trigger.setAttribute('aria-expanded', 'false');
-        trigger.removeAttribute('aria-activedescendant');
-        options.forEach(function (option) { option.classList.remove('is-active'); });
-        activeIndex = -1;
-      }
-
-      function chooseProjectOption(option) {
-        projectInput.value = option.dataset.value;
-        valueLabel.textContent = option.textContent;
-        projectSelect.classList.add('has-value');
+      projectDropdown = initializeStyledSelect(projectSelect, projectInput, function () {
         projectSelect.closest('.contact-select-field').classList.remove('is-invalid');
         window.clearTimeout(contactNoteTimeout);
         contactNoteTimeout = null;
-        options.forEach(function (item) {
-          item.setAttribute('aria-selected', String(item === option));
-        });
         if (contactNote) {
           contactNote.textContent = '';
           contactNote.hidden = true;
           contactNote.classList.remove('is-ready', 'is-error');
         }
-        closeProjectOptions();
-        trigger.focus();
-      }
-
-      options.forEach(function (option, index) {
-        option.id = 'contact-project-option-' + (index + 1);
-        option.tabIndex = -1;
-        option.addEventListener('click', function () { chooseProjectOption(option); });
-      });
-
-      trigger.addEventListener('click', function () {
-        if (optionsPanel.hidden) openProjectOptions();
-        else closeProjectOptions();
-      });
-      trigger.addEventListener('keydown', function (event) {
-        if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
-          event.preventDefault();
-          if (optionsPanel.hidden) openProjectOptions();
-          else setActiveOption(activeIndex + (event.key === 'ArrowDown' ? 1 : -1));
-        } else if ((event.key === 'Enter' || event.key === ' ') && !optionsPanel.hidden) {
-          event.preventDefault();
-          chooseProjectOption(options[activeIndex]);
-        } else if (event.key === 'Escape' && !optionsPanel.hidden) {
-          event.preventDefault();
-          closeProjectOptions();
-        } else if (event.key === 'Home' && !optionsPanel.hidden) {
-          event.preventDefault();
-          setActiveOption(0);
-        } else if (event.key === 'End' && !optionsPanel.hidden) {
-          event.preventDefault();
-          setActiveOption(options.length - 1);
-        }
-      });
-      document.addEventListener('click', function (event) {
-        if (!projectSelect.contains(event.target)) closeProjectOptions();
       });
     }
 
@@ -466,7 +503,7 @@
         }
         const trigger = document.querySelector('#contact-project-trigger');
         trigger.focus();
-        if (projectSelect) openProjectOptions();
+        if (projectDropdown) projectDropdown.open();
         return;
       }
       const submitButton = contactForm.querySelector('[type="submit"]');
@@ -490,13 +527,7 @@
         }
 
         contactForm.reset();
-        if (projectInput && projectSelect) {
-          projectSelect.querySelector('#contact-project-value').textContent = 'Choose a starting point';
-          projectSelect.classList.remove('has-value');
-          projectSelect.querySelectorAll('.contact-select-option').forEach(function (option) {
-            option.setAttribute('aria-selected', 'false');
-          });
-        }
+        if (projectDropdown) projectDropdown.reset();
         if (contactNote) {
           contactNote.textContent = 'Thanks! Your message has been sent. We’ll be in touch soon.';
           contactNote.classList.add('is-ready');

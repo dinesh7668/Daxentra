@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="assets/images/Logo/brand_icon.png">
+  <title>Careers & Internships — Daxentra</title>
+  <meta name="description" content="Start your technology career with a Daxentra internship. Explore development, design, data, and other learning tracks.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/careers.css">
+  <script src="js/theme-init.js"></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Daxentra — Home">
+        <img class="logo-image" src="assets/images/Logo/full_name_logo.png" alt="Daxentra">
+      </a>
+
+      <nav class="nav desktop-nav" id="main-nav" aria-label="Main navigation">
+        <ul class="nav-links" id="nav-links" role="list">
+          <li><a href="index.html#about" class="nav-link">About</a></li>
+          <li><a href="index.html#services" class="nav-link">Services</a></li>
+          <li><a href="index.html#work" class="nav-link">Work</a></li>
+          <li><a href="index.html#team" class="nav-link">Team</a></li>
+          <li><a href="index.html#process" class="nav-link">Process</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+          <li><a href="careers.html" class="nav-link nav-link-active" aria-current="page">Careers</a></li>
+        </ul>
+      </nav>
+
+      <a href="#career-application" class="btn btn-primary nav-cta">Apply Now</a>
+
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false">
+        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.1A8.4 8.4 0 0 1 8.9 3.8 8.5 8.5 0 1 0 20.2 15.1Z"/></svg>
+      </button>
+
+      <button class="mobile-menu-btn" id="mobile-menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation menu">
+        <span class="hamburger" aria-hidden="true">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </span>
+      </button>
+    </div>
+
+    <nav class="mobile-nav-drawer" id="mobile-nav" aria-label="Mobile navigation">
+      <div class="container mobile-nav-inner">
+        <ul class="mobile-nav-links" id="mobile-nav-links" role="list">
+          <li><a href="index.html#services" class="mobile-nav-link">Services</a></li>
+          <li><a href="index.html#work" class="mobile-nav-link">Work</a></li>
+          <li><a href="index.html#team" class="mobile-nav-link">Team</a></li>
+          <li><a href="index.html#about" class="mobile-nav-link">About</a></li>
+          <li><a href="index.html#process" class="mobile-nav-link">Process</a></li>
+          <li><a href="index.html#contact" class="mobile-nav-link">Contact</a></li>
+          <li><a href="careers.html" class="mobile-nav-link" aria-current="page">Careers</a></li>
+        </ul>
+        <div class="mobile-nav-cta-wrapper">
+          <a href="#career-application" class="btn btn-primary mobile-drawer-btn">Apply for an Internship</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content" class="careers-page">
+    <section class="career-hero">
+      <div class="container career-hero-grid">
+        <div class="career-hero-copy">
+          <p class="career-kicker"><span aria-hidden="true">01</span> DAXENTRA INTERNSHIP PROGRAM</p>
+          <h1>Turn your curiosity into <span>real experience.</span></h1>
+          <p class="career-hero-description">
+            Learn by doing, build practical skills, and get guidance as you work
+            towards your future in technology and design.
+          </p>
+          <div class="career-hero-actions">
+            <a class="btn btn-primary btn-lg" href="#career-programs">Explore programs <span aria-hidden="true">↓</span></a>
+            <a class="career-text-link" href="#career-application">Apply for an internship <span aria-hidden="true">↗</span></a>
+          </div>
+          <ul class="career-highlights" role="list">
+            <li>Project-based learning</li>
+            <li>Guidance as you grow</li>
+            <li>Skills for your next step</li>
+          </ul>
+        </div>
+
+        <div class="career-code-card" aria-label="A preview of your learning journey">
+          <div class="career-code-top">
+            <span class="career-window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span>your-next-step.js</span>
+            <span class="career-code-status"><i aria-hidden="true"></i> ready to grow</span>
+          </div>
+          <div class="career-code-body" aria-hidden="true">
+            <p><span class="career-code-keyword">const</span> journey = {</p>
+            <p>&nbsp;&nbsp;curiosity: <span class="career-code-value">"Learning"</span>,</p>
+            <p>&nbsp;&nbsp;ideas: <span class="career-code-value">"Building"</span>,</p>
+            <p>&nbsp;&nbsp;skills: <span class="career-code-value">"Growing"</span>,</p>
+            <p>&nbsp;&nbsp;nextStep: <span class="career-code-accent">"With Daxentra"</span></p>
+            <p>};</p>
+            <br>
+            <p><span class="career-code-keyword">function</span> <span class="career-code-accent">startHere</span>() {</p>
+            <p>&nbsp;&nbsp;<span class="career-code-value">return "Make it real";</span></p>
+            <p>}</p>
+          </div>
+          <div class="career-code-footer"><span>LEARN <i>·</i> BUILD <i>·</i> GROW</span><span>DEXENTRA</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="career-section career-benefits">
+      <div class="container">
+        <div class="career-section-heading">
+          <p class="career-eyebrow">The experience</p>
+          <h2>Learn more than just theory</h2>
+          <p>Develop practical skills and explore the tools and ways of working used on real digital projects.</p>
+        </div>
+        <div class="career-benefit-grid">
+          <article class="career-benefit-card">
+            <span class="career-card-index">01</span>
+            <div class="career-icon" aria-hidden="true">01</div>
+            <h3>Hands-on projects</h3>
+            <p>Put what you learn into practice through guided exercises and meaningful project work.</p>
+          </article>
+          <article class="career-benefit-card">
+            <span class="career-card-index">02</span>
+            <div class="career-icon" aria-hidden="true">02</div>
+            <h3>Supportive guidance</h3>
+            <p>Get feedback and direction as you build your confidence and strengthen your skills.</p>
+          </article>
+          <article class="career-benefit-card">
+            <span class="career-card-index">03</span>
+            <div class="career-icon" aria-hidden="true">03</div>
+            <h3>Career-ready habits</h3>
+            <p>Practice communication, collaboration, and problem-solving alongside technical skills.</p>
+          </article>
+          <article class="career-benefit-card">
+            <span class="career-card-index">04</span>
+            <div class="career-icon" aria-hidden="true">04</div>
+            <h3>Room to grow</h3>
+            <p>Explore an area that interests you and take a thoughtful first step into the industry.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="career-section career-programs" id="career-programs">
+      <div class="container">
+        <div class="career-section-heading">
+          <p class="career-eyebrow">Explore opportunities</p>
+          <h2>Find a program that fits you</h2>
+          <p>Choose an area that sparks your interest. You can tell us more about your goals when you apply.</p>
+        </div>
+        <div class="career-filters" role="group" aria-label="Filter internship programs">
+          <button class="career-filter is-active" type="button" data-filter="all" aria-pressed="true">All programs</button>
+          <button class="career-filter" type="button" data-filter="development" aria-pressed="false">Development</button>
+          <button class="career-filter" type="button" data-filter="data" aria-pressed="false">AI &amp; data</button>
+          <button class="career-filter" type="button" data-filter="design" aria-pressed="false">Design</button>
+          <button class="career-filter" type="button" data-filter="other" aria-pressed="false">Other IT</button>
+        </div>
+        <div class="career-program-grid">
+          <article class="career-program-card" data-category="development">
+            <div class="career-program-meta"><span>01 / DEVELOPMENT</span><span aria-hidden="true">↗</span></div>
+            <h3>Web Development</h3>
+            <p>Learn to create responsive websites and engaging web experiences.</p>
+            <ul class="career-tags" role="list"><li>HTML &amp; CSS</li><li>JavaScript</li><li>React</li></ul>
+            <a class="career-apply-link" href="#career-application" data-program="Web Development">Explore this track <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="career-program-card" data-category="development">
+            <div class="career-program-meta"><span>02 / DEVELOPMENT</span><span aria-hidden="true">↗</span></div>
+            <h3>Java Full Stack</h3>
+            <p>Explore application development across backend and frontend technologies.</p>
+            <ul class="career-tags" role="list"><li>Java</li><li>Spring Boot</li><li>MySQL</li></ul>
+            <a class="career-apply-link" href="#career-application" data-program="Java Full Stack">Explore this track <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="career-program-card" data-category="development">
+            <div class="career-program-meta"><span>03 / DEVELOPMENT</span><span aria-hidden="true">↗</span></div>
+            <h3>Python Development</h3>
+            <p>Strengthen your programming foundation and build useful applications.</p>
+            <ul class="career-tags" role="list"><li>Python</li><li>APIs</li><li>Databases</li></ul>
+            <a class="career-apply-link" href="#career-application" data-program="Python Development">Explore this track <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="career-program-card" data-category="data">
+            <div class="career-program-meta"><span>04 / AI &amp; DATA</span><span aria-hidden="true">↗</span></div>
+            <h3>Artificial Intelligence</h3>
+            <p>Discover AI concepts and experiment with practical intelligent systems.</p>
+            <ul class="career-tags" role="list"><li>Python</li><li>Machine learning</li><li>AI tools</li></ul>
+            <a class="career-apply-link" href="#career-application" data-program="Artificial Intelligence">Explore this track <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="career-program-card" data-category="data">
+            <div class="career-program-meta"><span>05 / AI &amp; DATA</span><span aria-hidden="true">↗</span></div>
+            <h3>Data Analytics</h3>
+            <p>Turn data into useful insights with analysis and clear communication.</p>
+            <ul class="career-tags" role="list"><li>SQL</li><li>Power BI</li><li>Excel</li></ul>
+            <a class="career-apply-link" href="#career-application" data-program="Data Analytics">Explore this track <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="career-program-card" data-category="design">
+            <div class="career-program-meta"><span>06 / DESIGN</span><span aria-hidden="true">↗</span></div>
+            <h3>UI/UX Design</h3>
+            <p>Learn to shape intuitive interfaces and thoughtful digital experiences.</p>
+            <ul class="career-tags" role="list"><li>Figma</li><li>Wireframes</li><li>Prototyping</li></ul>
+            <a class="career-apply-link" href="#career-application" data-program="UI/UX Design">Explore this track <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="career-program-card" data-category="other">
+            <div class="career-program-meta"><span>07 / OTHER IT</span><span aria-hidden="true">↗</span></div>
+            <h3>Cloud &amp; DevOps</h3>
+            <p>Get introduced to cloud infrastructure and modern delivery workflows.</p>
+            <ul class="career-tags" role="list"><li>Cloud</li><li>Docker</li><li>Git</li></ul>
+            <a class="career-apply-link" href="#career-application" data-program="Cloud & DevOps">Explore this track <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="career-program-card" data-category="other">
+            <div class="career-program-meta"><span>08 / OTHER IT</span><span aria-hidden="true">↗</span></div>
+            <h3>Cyber Security</h3>
+            <p>Explore security fundamentals, networks, and responsible practices.</p>
+            <ul class="career-tags" role="list"><li>Networking</li><li>Linux</li><li>Security</li></ul>
+            <a class="career-apply-link" href="#career-application" data-program="Cyber Security">Explore this track <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="career-program-card" data-category="development">
+            <div class="career-program-meta"><span>09 / DEVELOPMENT</span><span aria-hidden="true">↗</span></div>
+            <h3>App Development</h3>
+            <p>Discover how mobile applications are planned, designed, and built.</p>
+            <ul class="career-tags" role="list"><li>Flutter</li><li>Dart</li><li>Firebase</li></ul>
+            <a class="career-apply-link" href="#career-application" data-program="App Development">Explore this track <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="career-section career-approach">
+      <div class="container career-approach-grid">
+        <div class="career-approach-visual">
+          <img class="career-approach-logo" src="assets/images/Logo/brand_icon.png" alt="">
+          <div class="career-approach-note"><span>MAKE IT</span><strong>real.</strong></div>
+        </div>
+        <div class="career-approach-copy">
+          <p class="career-eyebrow">Why Daxentra</p>
+          <h2>Build skills that move you forward</h2>
+          <p>Our approach is focused on practical learning, steady progress, and helping you grow your confidence as you explore your chosen field.</p>
+          <ul class="career-check-list" role="list">
+            <li><span aria-hidden="true">✓</span><div><strong>Learn by making</strong><p>Apply new ideas through practical assignments and projects.</p></div></li>
+            <li><span aria-hidden="true">✓</span><div><strong>Grow with feedback</strong><p>Get guidance that helps you understand what to improve next.</p></div></li>
+            <li><span aria-hidden="true">✓</span><div><strong>Prepare for teamwork</strong><p>Practice the collaboration and communication skills teams rely on.</p></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="career-section career-process">
+      <div class="container">
+        <div class="career-section-heading">
+          <p class="career-eyebrow">Your next steps</p>
+          <h2>Getting started is simple</h2>
+          <p>Here is what to expect when you reach out about an internship.</p>
+        </div>
+        <ol class="career-steps">
+          <li><span>01</span><h3>Choose a track</h3><p>Explore the areas and select the one that interests you.</p></li>
+          <li><span>02</span><h3>Tell us about you</h3><p>Share your background and what you hope to learn.</p></li>
+          <li><span>03</span><h3>Connect with us</h3><p>Our team can review your application and follow up.</p></li>
+          <li><span>04</span><h3>Plan your next step</h3><p>Discuss the program details and how to move forward.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="career-skills">
+      <div class="container">
+        <div class="career-section-heading">
+          <p class="career-eyebrow">Keep growing</p>
+          <h2>Skills you can explore</h2>
+          <p>Build a blend of technical and professional skills for your future.</p>
+        </div>
+        <ul class="career-skill-list" role="list">
+          <li>HTML &amp; CSS</li><li>JavaScript</li><li>React</li><li>Java</li>
+          <li>Python</li><li>SQL &amp; databases</li><li>Git &amp; GitHub</li>
+          <li>Problem solving</li><li>Communication</li><li>Team collaboration</li>
+          <li>Project development</li><li>Time management</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="career-section career-faq" id="career-faq">
+      <div class="container">
+        <div class="career-section-heading">
+          <p class="career-eyebrow">Good to know</p>
+          <h2>Frequently asked questions</h2>
+          <p>Some quick answers to help you decide whether to apply.</p>
+        </div>
+        <div class="career-faq-list">
+          <details class="career-faq-item" open>
+            <summary>Who can apply for an internship?<span aria-hidden="true"></span></summary>
+            <p>Students, recent graduates, and beginners interested in building their IT or professional skills are welcome to apply. Requirements may vary by program.</p>
+          </details>
+          <details class="career-faq-item">
+            <summary>Do I need prior experience?<span aria-hidden="true"></span></summary>
+            <p>Not always. Some tracks may suit beginners. Tell us about your current experience and goals in the application.</p>
+          </details>
+          <details class="career-faq-item">
+            <summary>How long is the internship?<span aria-hidden="true"></span></summary>
+            <p>Duration depends on the program and current schedule. Our team can confirm details when following up on your application.</p>
+          </details>
+          <details class="career-faq-item">
+            <summary>Are internships paid, and is a certificate provided?<span aria-hidden="true"></span></summary>
+            <p>Stipend, fees, and certificate eligibility depend on the specific opportunity and its completion requirements. Please confirm the terms with our team before accepting an offer.</p>
+          </details>
+          <details class="career-faq-item">
+            <summary>What happens after I apply?<span aria-hidden="true"></span></summary>
+            <p>Our team will review your details and contact you about the relevant program and next steps.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="career-section career-application" id="career-application">
+      <div class="container">
+        <div class="career-section-heading">
+          <p class="career-eyebrow">Take the first step</p>
+          <h2>Apply for an internship</h2>
+          <p>Share a few details and tell us what you would like to learn.</p>
+        </div>
+        <div class="career-application-grid">
+          <aside class="career-application-aside">
+            <span class="career-aside-label">YOUR JOURNEY STARTS HERE</span>
+            <h3>Bring your ambition. We’ll help you explore what’s next.</h3>
+            <p>Submit your details to express interest in a Daxentra internship. Our team can follow up with information about the program.</p>
+            <ul role="list">
+              <li>Choose an area that interests you</li>
+              <li>Tell us about your studies and goals</li>
+              <li>Hear from our team about next steps</li>
+            </ul>
+            <p class="career-contact-note">Questions first? <a href="contact.html">Get in touch <span aria-hidden="true">↗</span></a></p>
+          </aside>
+
+          <form class="career-application-form" id="career-application-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="f2d644f1-ef05-4699-a8b3-086edc2a0d0c">
+            <input type="hidden" name="subject" value="New Daxentra internship application">
+            <input type="hidden" name="from_name" value="Daxentra Careers">
+            <h3>Internship application</h3>
+            <p class="career-form-intro">Fields marked with <span aria-hidden="true">*</span> are required.</p>
+            <div class="career-form-grid">
+              <div class="career-field">
+                <label for="career-name">Full name <span aria-hidden="true">*</span></label>
+                <input id="career-name" name="name" type="text" autocomplete="name" placeholder="Your full name" required>
+              </div>
+              <div class="career-field">
+                <label for="career-email">Email address <span aria-hidden="true">*</span></label>
+                <input id="career-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+              </div>
+              <div class="career-field">
+                <label for="career-phone">Phone number <span aria-hidden="true">*</span></label>
+                <input id="career-phone" name="phone" type="tel" autocomplete="tel" placeholder="Your contact number" required>
+              </div>
+              <div class="career-field contact-select-field">
+                <label id="career-qualification-label" for="career-qualification-trigger">Qualification <span aria-hidden="true">*</span></label>
+                <input id="career-qualification" name="qualification" type="hidden" value="">
+                <div class="contact-select career-select" id="career-qualification-select">
+                  <button class="contact-select-trigger" id="career-qualification-trigger" type="button" role="combobox" aria-labelledby="career-qualification-label career-qualification-value" aria-haspopup="listbox" aria-expanded="false" aria-controls="career-qualification-options" aria-required="true">
+                    <span class="contact-select-value" id="career-qualification-value">Select qualification</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 7.5 5 5 5-5"/></svg>
+                  </button>
+                  <div class="contact-select-options" id="career-qualification-options" role="listbox" aria-labelledby="career-qualification-label" hidden>
+                    <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="12th Pass">12th Pass</button>
+                    <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="Diploma">Diploma</button>
+                    <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="BCA">BCA</button>
+                    <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="B.Tech / BE">B.Tech / BE</button>
+                    <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="B.Sc">B.Sc</button>
+                    <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="MCA">MCA</button>
+                    <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="M.Tech">M.Tech</button>
+                    <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="MBA">MBA</button>
+                    <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="Other">Other</button>
+                  </div>
+                </div>
+              </div>
+              <div class="career-field">
+                <label for="career-college">College / university</label>
+                <input id="career-college" name="college" type="text" autocomplete="organization" placeholder="Where are you studying?">
+              </div>
+              <div class="career-field">
+                <label for="career-location">City / location <span aria-hidden="true">*</span></label>
+                <input id="career-location" name="location" type="text" autocomplete="address-level2" placeholder="Your city" required>
+              </div>
+              <div class="career-field career-field-full contact-select-field">
+                <label id="career-domain-label" for="career-domain-trigger">Preferred internship track <span aria-hidden="true">*</span></label>
+                <input id="career-domain" name="internship_track" type="hidden" value="">
+                <div class="contact-select career-select" id="career-domain-select">
+                  <button class="contact-select-trigger" id="career-domain-trigger" type="button" role="combobox" aria-labelledby="career-domain-label career-domain-value" aria-haspopup="listbox" aria-expanded="false" aria-controls="career-domain-options" aria-required="true">
+                    <span class="contact-select-value" id="career-domain-value">Choose a program</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 7.5 5 5 5-5"/></svg>
+                  </button>
+                  <div class="contact-select-options" id="career-domain-options" role="listbox" aria-labelledby="career-domain-label" hidden>
+                    <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="Web Development">Web Development</button>
+                    <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="Java Full Stack">Java Full Stack</button>
+                    <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="Python Development">Python Development</button>
+                    <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="Artificial Intelligence">Artificial Intelligence</button>
+                    <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="Data Analytics">Data Analytics</button>
+                    <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="UI/UX Design">UI/UX Design</button>
+                    <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="Cloud &amp; DevOps">Cloud &amp; DevOps</button>
+                    <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="Cyber Security">Cyber Security</button>
+                    <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="App Development">App Development</button>
+                    <button type="button" class="contact-select-option" role="option" aria-selected="false" data-value="Other">Other</button>
+                  </div>
+                </div>
+              </div>
+              <div class="career-field career-field-full">
+                <label for="career-message">What would you like to learn?</label>
+                <textarea id="career-message" name="message" rows="4" placeholder="Share your interests, experience, or goals (optional)"></textarea>
+              </div>
+            </div>
+            <label class="career-consent">
+              <input type="checkbox" name="consent" value="Yes" required>
+              <span>I confirm these details are accurate and agree to be contacted about this internship application.</span>
+            </label>
+            <button class="btn btn-primary btn-lg career-submit" type="submit">Send application <span aria-hidden="true">↗</span></button>
+            <p class="career-form-status" id="career-form-status" role="status" aria-live="polite" hidden></p>
+          </form>
+          <dialog class="contact-success-dialog" id="career-success-dialog" aria-labelledby="career-success-title" aria-describedby="career-success-message">
+            <div class="contact-success-content">
+              <span class="contact-success-icon" aria-hidden="true">✓</span>
+              <h2 id="career-success-title">Application sent successfully!</h2>
+              <p id="career-success-message">Thank you for applying. Your details have been sent to the Daxentra team, and we&rsquo;ll be in touch soon.</p>
+              <button class="btn btn-primary contact-success-close" type="button">Got it</button>
+            </div>
+          </dialog>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo footer-logo" aria-label="Daxentra — Home">
+          <img class="logo-image" src="assets/images/Logo/full_name_logo.png" alt="Daxentra">
+        </a>
+        <p class="footer-tagline">Technology That Moves Business Forward.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <ul class="footer-links" role="list">
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#work">Work</a></li>
+          <li><a href="index.html#team">Team</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#process">Process</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="careers.html" aria-current="page">Careers</a></li>
+        </ul>
+      </nav>
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; <span id="copyright-year"></span> Daxentra. All rights reserved.</p>
+        <a href="#main-content" class="back-to-top" aria-label="Back to top">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
+          Top
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/careers.js"></script>
+</body>
+</html>
